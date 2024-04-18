@@ -1,7 +1,7 @@
 # Spiceroad Online Platform as a Service
 
 ### Step 1: 
-**Visit [https://platform.spiceroad.online]platform.spiceroad.online**
+**Visit [Spiceroad Online - The Platform](https://platform.spiceroad.online)**
 ### Step 2: 
 **Register a partner account and await approval.**
 ### Step 3:
