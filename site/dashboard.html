@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Spiceroad Platform</title>
+  <meta name="description" content="Member dashboard mockup for orders, downloads, and uploads." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html"><img src="assets/logo-platform.png" alt="Spiceroad Platform" /></a>
+      <nav class="nav">
+        <a data-nav href="index.html">Home</a>
+        <a data-nav href="products.html">Products</a>
+        <a data-nav href="free-resources.html">Free Resources</a>
+        <a data-nav href="guides.html">Guides</a>
+      </nav>
+      <div class="header-actions"><a class="btn btn-primary" href="dashboard.html">Dashboard</a></div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <div class="container">
+      <div class="breadcrumbs"><a href="index.html">Home</a> / <span>Dashboard</span></div>
+      <h1 class="section-title">Client Dashboard</h1>
+      <p class="section-copy">A delivery portal for paid products, free claimed resources, and upload-based orders.</p>
+
+      <div class="dashboard-grid">
+        <aside class="dashboard-panel">
+          <div class="side-menu">
+            <a class="active" href="#">Overview</a>
+            <a href="#">My Orders</a>
+            <a href="#">Downloads</a>
+            <a href="#">Uploads</a>
+            <a href="#">Free Library</a>
+            <a href="#">Account</a>
+          </div>
+        </aside>
+
+        <section class="dashboard-panel">
+          <div class="stat-grid">
+            <div class="stat-box"><strong>4</strong><span>Active orders</span></div>
+            <div class="stat-box"><strong>12</strong><span>Available downloads</span></div>
+            <div class="stat-box"><strong>3</strong><span>Pending uploads</span></div>
+          </div>
+
+          <table class="table">
+            <thead><tr><th>Product</th><th>Status</th><th>Updated</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td>Custom Installer Builder</td><td>In review</td><td>Today</td><td>Open order</td></tr>
+              <tr><td>Silkroad Launcher Source</td><td>Ready</td><td>Yesterday</td><td>Download</td></tr>
+              <tr><td>PK2 Tool Suite</td><td>Claimed</td><td>Apr 18</td><td>Open library</td></tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container"><div class="footer-bottom"><div>© Spiceroad Platform</div><div>Dashboard mockup</div></div></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
