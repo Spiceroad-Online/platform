@@ -18,7 +18,7 @@
         <a data-nav href="guides.html">Guides</a>
       </nav>
       <div class="header-actions">
-        <a class="btn btn-primary" href="dashboard.html">Dashboard</a>
+        <a class="btn btn-primary" href="dashboard.html">Account</a>
       </div>
     </div>
   </header>
@@ -27,7 +27,6 @@
     <section class="page-hero">
       <div class="container">
         <div class="hero-inner">
-          <div class="kicker">Luxury dark marketplace × Silkroad tooling</div>
           <h1 class="hero-title">Premium Silkroad Online Private Server Resources</h1>
           <p class="hero-copy">
             A real storefront for serious private-server operators: launcher UI, custom installer builds, PK2 workflow tools,
@@ -35,7 +34,7 @@
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="products.html">Browse Products</a>
-            <a class="btn btn-ghost" href="product-launcher.html">See Launcher Product</a>
+            <a class="btn btn-ghost" href="dashboard.html">Get Membership</a>
           </div>
         </div>
       </div>
@@ -45,7 +44,7 @@
       <div class="container">
         <h2 class="section-title">Best-Selling Resources</h2>
         <p class="section-copy">This front page follows the mood and structure of your chosen concept while being implemented as a real multi-page static website.</p>
-        <div class="grid-4">
+        <div class="grid-3">
           <article class="card product-card">
             <div class="card-art"><img src="assets/hero-concept.png" alt="Custom installer builder" /></div>
             <div class="product-body">
@@ -73,15 +72,6 @@
               <a class="btn" href="free-resources.html">Login to Download</a>
             </div>
           </article>
-          <article class="card product-card">
-            <div class="card-art"><img src="assets/hero-concept.png" alt="Anti-DDoS protection" /></div>
-            <div class="product-body">
-              <h3>Anti-DDoS Protection</h3>
-              <p>Protection and infrastructure hardening services for high-traffic private-server deployments.</p>
-              <div class="price-row"><div class="price">$99</div><span class="badge">Secure</span></div>
-              <a class="btn" href="products.html">Get Now</a>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -90,21 +80,130 @@
       <div class="container">
         <div class="grid-3">
           <article class="feature-box">
-            <div class="feature-icon">⚒</div>
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="fi-blade" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#fff1d4"/>
+                    <stop offset="55%" stop-color="#f3c27b"/>
+                    <stop offset="100%" stop-color="#6b3e16"/>
+                  </linearGradient>
+                  <linearGradient id="fi-hilt" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#f3c27b"/>
+                    <stop offset="100%" stop-color="#4a2a0e"/>
+                  </linearGradient>
+                  <radialGradient id="fi-glow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#ffd089" stop-opacity=".55"/>
+                    <stop offset="100%" stop-color="#ffd089" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <circle cx="32" cy="32" r="22" fill="url(#fi-glow)"/>
+                <!-- Sword 1 (\) -->
+                <g transform="rotate(45 32 32)">
+                  <rect x="30.5" y="8" width="3" height="32" fill="url(#fi-blade)" stroke="#2a1607" stroke-width=".6"/>
+                  <rect x="26" y="40" width="12" height="2.5" fill="url(#fi-hilt)"/>
+                  <rect x="30.25" y="42.5" width="3.5" height="9" fill="url(#fi-hilt)"/>
+                  <circle cx="32" cy="53.5" r="2.2" fill="url(#fi-hilt)" stroke="#2a1607" stroke-width=".5"/>
+                </g>
+                <!-- Sword 2 (/) -->
+                <g transform="rotate(-45 32 32)">
+                  <rect x="30.5" y="8" width="3" height="32" fill="url(#fi-blade)" stroke="#2a1607" stroke-width=".6"/>
+                  <rect x="26" y="40" width="12" height="2.5" fill="url(#fi-hilt)"/>
+                  <rect x="30.25" y="42.5" width="3.5" height="9" fill="url(#fi-hilt)"/>
+                  <circle cx="32" cy="53.5" r="2.2" fill="url(#fi-hilt)" stroke="#2a1607" stroke-width=".5"/>
+                </g>
+              </svg>
+            </div>
             <div>
               <h3>Exclusive Dev Tools</h3>
               <p>High-end PK2 editors, script generators, launcher builders, and other technical resources for advanced Silkroad workflows.</p>
             </div>
           </article>
           <article class="feature-box">
-            <div class="feature-icon">⛨</div>
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="fi-shield" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#ffe2b8"/>
+                    <stop offset="50%" stop-color="#c98a3e"/>
+                    <stop offset="100%" stop-color="#4a2a0e"/>
+                  </linearGradient>
+                  <radialGradient id="fi-glow2" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#ffd089" stop-opacity=".55"/>
+                    <stop offset="100%" stop-color="#ffd089" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <circle cx="32" cy="32" r="22" fill="url(#fi-glow2)"/>
+                <!-- Shield body -->
+                <path d="M32 10 L50 16 V32 C50 43 42 51 32 55 C22 51 14 43 14 32 V16 Z"
+                      fill="url(#fi-shield)" stroke="#2a1607" stroke-width="1"/>
+                <!-- Inner bevel -->
+                <path d="M32 14 L46 19 V32 C46 41 39.5 48 32 51 C24.5 48 18 41 18 32 V19 Z"
+                      fill="none" stroke="#fff1d4" stroke-width=".6" opacity=".55"/>
+                <!-- Decorative cross -->
+                <path d="M32 20 V44 M22 32 H42" stroke="#2a1607" stroke-width="1.5" opacity=".45"/>
+                <!-- Center boss -->
+                <circle cx="32" cy="32" r="4" fill="#f3c27b" stroke="#2a1607" stroke-width=".8"/>
+                <circle cx="32" cy="32" r="1.5" fill="#fff1d4"/>
+                <!-- Top ornament -->
+                <path d="M28 10 L32 6 L36 10 Z" fill="#f3c27b" stroke="#2a1607" stroke-width=".6"/>
+              </svg>
+            </div>
             <div>
               <h3>Dedicated Support</h3>
               <p>Expert guidance for launcher customization, packaging flows, delivery portals, and infrastructure hardening.</p>
             </div>
           </article>
           <article class="feature-box">
-            <div class="feature-icon">✦</div>
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="fi-chest-lid" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#f3c27b"/>
+                    <stop offset="100%" stop-color="#7a4518"/>
+                  </linearGradient>
+                  <linearGradient id="fi-chest-body" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#a8692e"/>
+                    <stop offset="100%" stop-color="#3a2009"/>
+                  </linearGradient>
+                  <radialGradient id="fi-coin-glow" cx="50%" cy="40%" r="60%">
+                    <stop offset="0%" stop-color="#fff1b8" stop-opacity=".95"/>
+                    <stop offset="70%" stop-color="#f3c27b" stop-opacity=".4"/>
+                    <stop offset="100%" stop-color="#ffd089" stop-opacity="0"/>
+                  </radialGradient>
+                  <radialGradient id="fi-glow3" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#ffd089" stop-opacity=".5"/>
+                    <stop offset="100%" stop-color="#ffd089" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <circle cx="32" cy="32" r="22" fill="url(#fi-glow3)"/>
+                <!-- Inner glow from open chest -->
+                <ellipse cx="32" cy="30" rx="20" ry="10" fill="url(#fi-coin-glow)"/>
+                <!-- Chest body -->
+                <rect x="12" y="32" width="40" height="20" rx="1.5"
+                      fill="url(#fi-chest-body)" stroke="#2a1607" stroke-width="1"/>
+                <!-- Chest lid (open, angled back) -->
+                <path d="M12 32 Q12 20 32 18 Q52 20 52 32 Z"
+                      fill="url(#fi-chest-lid)" stroke="#2a1607" stroke-width="1"/>
+                <!-- Lid bands -->
+                <path d="M20 32 Q21 22 32 20 Q43 22 44 32" fill="none" stroke="#2a1607" stroke-width=".8" opacity=".55"/>
+                <!-- Body bands -->
+                <line x1="12" y1="40" x2="52" y2="40" stroke="#2a1607" stroke-width=".8" opacity=".5"/>
+                <line x1="22" y1="32" x2="22" y2="52" stroke="#2a1607" stroke-width=".8" opacity=".5"/>
+                <line x1="42" y1="32" x2="42" y2="52" stroke="#2a1607" stroke-width=".8" opacity=".5"/>
+                <!-- Lock -->
+                <rect x="29" y="36" width="6" height="6" fill="#f3c27b" stroke="#2a1607" stroke-width=".6"/>
+                <circle cx="32" cy="39" r="1" fill="#2a1607"/>
+                <!-- Coins -->
+                <circle cx="24" cy="34" r="2.4" fill="#ffe08a" stroke="#8a541f" stroke-width=".5"/>
+                <circle cx="32" cy="33" r="2.4" fill="#ffe08a" stroke="#8a541f" stroke-width=".5"/>
+                <circle cx="40" cy="34" r="2.4" fill="#ffe08a" stroke="#8a541f" stroke-width=".5"/>
+                <!-- Sparkles -->
+                <path d="M32 12 L33 15 L32 18 L31 15 Z" fill="#fff1d4" opacity=".9"/>
+                <path d="M46 18 L47 20.5 L46 23 L45 20.5 Z" fill="#fff1d4" opacity=".7"/>
+                <path d="M18 18 L19 20.5 L18 23 L17 20.5 Z" fill="#fff1d4" opacity=".7"/>
+              </svg>
+            </div>
             <div>
               <h3>Premium Resources</h3>
               <p>Free and paid content organized into a member-friendly experience with SEO-friendly public pages and gated delivery.</p>
