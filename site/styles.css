@@ -29,7 +29,7 @@
 
 html {
     scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 body {
     margin: 0;
@@ -44,7 +44,7 @@ body {
     color: var(--text);
     background-color: #060403;
     min-height: 100vh;
-      overflow-x: hidden;
+      overflow-x: clip;
       position: relative;
       display: flex;
       flex-direction: column;
