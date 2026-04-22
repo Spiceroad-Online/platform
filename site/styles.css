@@ -10,6 +10,11 @@
       --gold: #f3c27b;
       --gold-2: #d98b33;
       --gold-3: #8a541f;
+  --title-gold-light: #fff1cf;
+  --title-gold-mid: #efc98e;
+  --title-gold-deep: #c67b2f;
+  --title-gold-shadow: rgba(45, 20, 6, 0.72);
+  --title-gold-glow: rgba(243, 194, 123, 0.22);
       --line: rgba(243, 194, 123, 0.15);
       --line-2: rgba(243, 194, 123, 0.34);
       --shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
@@ -662,6 +667,43 @@ body:not([data-particles]) .page-shell {
       font-size: clamp(2.2rem, 4vw, 3.6rem);
       line-height: 1.02;
       font-weight: 500;
+}
+
+.hero-title,
+.section-title,
+.product-head h1,
+.hero-panel-body h1,
+.product-overview-card h1 {
+  color: var(--title-gold-mid);
+  text-wrap: balance;
+  text-shadow:
+    0 1px 0 rgba(255, 244, 220, 0.3),
+    0 2px 0 rgba(145, 89, 34, 0.42),
+    0 12px 24px rgba(0, 0, 0, 0.34),
+    0 0 18px var(--title-gold-glow);
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hero-title,
+  .section-title,
+  .product-head h1,
+  .hero-panel-body h1,
+  .product-overview-card h1 {
+    background: linear-gradient(
+      180deg,
+      var(--title-gold-light) 0%,
+      #f6dba8 24%,
+      var(--title-gold-mid) 54%,
+      var(--title-gold-deep) 78%,
+      #ffe7ba 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 0.015em rgba(64, 30, 7, 0.24);
+    filter: drop-shadow(0 2px 1px rgba(33, 13, 2, 0.34));
+  }
 }
 
 .product-subtitle {
