@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const siteDir = path.resolve('site');
+const rootCnamePath = path.resolve('CNAME');
 
 const toPosix = (value) => value.split(path.sep).join('/');
 
@@ -147,6 +148,12 @@ const collectFilesByExtension = (directory, extension) => {
 if (!fs.existsSync(siteDir)) {
     throw new Error(`Static output directory not found: ${siteDir}`);
 }
+
+if (!fs.existsSync(rootCnamePath)) {
+    throw new Error(`Root CNAME file not found: ${rootCnamePath}`);
+}
+
+fs.copyFileSync(rootCnamePath, path.join(siteDir, 'CNAME'));
 
 for (const htmlFile of collectHtmlFiles(siteDir)) {
     rewriteHtml(htmlFile);

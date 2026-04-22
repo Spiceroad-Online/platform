@@ -52,11 +52,13 @@ body::after {
     z-index: 0;
     pointer-events: none;
     background:
-        linear-gradient(180deg,
+        linear-gradient(
+            180deg,
             var(--bg-fade-top) 0,
             var(--bg-fade-mid) 30rem,
             var(--bg-fade-deep) 72rem,
-            var(--bg-fade-bottom) 100%),
+            var(--bg-fade-bottom) 100%
+        ),
         url('../assets/site-bg.png') center top/cover no-repeat;
 }
 body[data-particles] {
@@ -419,23 +421,32 @@ a {
     border-radius: 3px;
     border: 1px solid rgba(243, 194, 123, 0.08);
     background:
-        radial-gradient(circle at 14% 10%,
+        radial-gradient(
+                circle at 14% 10%,
                 rgba(255, 243, 219, var(--card-hover-corner-opacity-1)) 0%,
                 rgba(255, 224, 173, var(--card-hover-corner-opacity-2)) 11%,
                 rgba(255, 224, 173, var(--card-hover-corner-opacity-3)) 18%,
-                transparent var(--card-hover-corner-size)) 0 0 / 100% 100% no-repeat,
-                    linear-gradient(90deg,
-                        rgba(255, 233, 193, 0) 0%,
-                        rgba(255, 233, 193, 0.12) 20%,
-                        rgba(255, 245, 224, 0.24) 44%,
-                        rgba(255, 224, 173, 0.08) 66%,
-                rgba(255, 224, 173, 0) 100%) 0 0 / var(--card-hover-top-line-size) 1px no-repeat,
-                    linear-gradient(180deg,
-                        rgba(255, 233, 193, 0) 0%,
-                        rgba(255, 233, 193, 0.12) 20%,
-                        rgba(255, 245, 224, 0.22) 44%,
-                        rgba(255, 224, 173, 0.08) 66%,
-                rgba(255, 224, 173, 0) 100%) 0 0 / 1px var(--card-hover-left-line-size) no-repeat,
+                transparent var(--card-hover-corner-size)
+            )
+            0 0 / 100% 100% no-repeat,
+        linear-gradient(
+                90deg,
+                rgba(255, 233, 193, 0) 0%,
+                rgba(255, 233, 193, 0.12) 20%,
+                rgba(255, 245, 224, 0.24) 44%,
+                rgba(255, 224, 173, 0.08) 66%,
+                rgba(255, 224, 173, 0) 100%
+            )
+            0 0 / var(--card-hover-top-line-size) 1px no-repeat,
+        linear-gradient(
+                180deg,
+                rgba(255, 233, 193, 0) 0%,
+                rgba(255, 233, 193, 0.12) 20%,
+                rgba(255, 245, 224, 0.22) 44%,
+                rgba(255, 224, 173, 0.08) 66%,
+                rgba(255, 224, 173, 0) 100%
+            )
+            0 0 / 1px var(--card-hover-left-line-size) no-repeat,
         linear-gradient(180deg, rgba(255, 245, 224, 0.01), transparent 22%);
     box-shadow:
         inset 0 0 0 1px rgba(255, 244, 220, 0.012),
@@ -531,11 +542,13 @@ a {
     pointer-events: none;
     background:
         radial-gradient(circle at 50% 18%, rgba(255, 232, 192, 0.08), transparent 42%),
-        linear-gradient(180deg,
+        linear-gradient(
+            180deg,
             rgba(9, 5, 3, 0.04) 0%,
             rgba(9, 5, 3, 0) 36%,
             rgba(9, 5, 3, 0.18) 72%,
-            rgba(9, 5, 3, 0.62) 100%);
+            rgba(9, 5, 3, 0.62) 100%
+        );
     z-index: 1;
 }
 
@@ -546,12 +559,14 @@ a {
     right: 18px;
     bottom: 0;
     height: 1px;
-    background: linear-gradient(90deg,
+    background: linear-gradient(
+        90deg,
         transparent 0%,
         rgba(243, 194, 123, 0.12) 16%,
         rgba(243, 194, 123, 0.56) 50%,
         rgba(243, 194, 123, 0.12) 84%,
-        transparent 100%);
+        transparent 100%
+    );
     box-shadow: 0 0 8px rgba(243, 194, 123, 0.05);
     z-index: 2;
 }
@@ -677,12 +692,14 @@ a {
     height: 72px;
     border-radius: 50%;
     flex: 0 0 auto;
-    background: radial-gradient(circle at 50% 38%,
-                rgba(255, 226, 184, 0.3),
-                rgba(138, 84, 31, 0.2) 55%,
-        rgba(10, 6, 4, 0.95) 100%);
-            border: 1px solid rgba(243, 194, 123, 0.35);
-            box-shadow:
+    background: radial-gradient(
+        circle at 50% 38%,
+        rgba(255, 226, 184, 0.3),
+        rgba(138, 84, 31, 0.2) 55%,
+        rgba(10, 6, 4, 0.95) 100%
+    );
+    border: 1px solid rgba(243, 194, 123, 0.35);
+    box-shadow:
         inset 0 0 16px rgba(0, 0, 0, 0.6),
         0 0 22px rgba(243, 194, 123, 0.1);
     display: grid;
@@ -771,11 +788,11 @@ body:not([data-particles]) .page-shell {
     align-items: stretch;
 }
 
-.product-layout>*:not(.side-panel) {
+.product-layout > *:not(.side-panel) {
     grid-column: 1;
 }
 
-.product-layout>.side-panel {
+.product-layout > .side-panel {
     grid-column: 2;
     grid-row: 1;
 }
@@ -888,38 +905,42 @@ body:not([data-particles]) .page-shell {
     .guide-card h3,
     .resource-card h3,
     .detail-card h2,
-        .faq-item h3 {
-        background: linear-gradient(180deg,
-                    var(--title-gold-light) 0%,
-                    #f6dba8 24%,
-                    var(--title-gold-mid) 54%,
-                    var(--title-gold-deep) 78%,
-            #ffe7ba 100%);
-                -webkit-background-clip: text;
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
-                color: transparent;
-                -webkit-text-stroke: 0.0165em rgba(64, 30, 7, 0.26);
-                filter: drop-shadow(0 2.2px 1.1px rgba(33, 13, 2, 0.37));
-            }
+    .faq-item h3 {
+        background: linear-gradient(
+            180deg,
+            var(--title-gold-light) 0%,
+            #f6dba8 24%,
+            var(--title-gold-mid) 54%,
+            var(--title-gold-deep) 78%,
+            #ffe7ba 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        -webkit-text-stroke: 0.0165em rgba(64, 30, 7, 0.26);
+        filter: drop-shadow(0 2.2px 1.1px rgba(33, 13, 2, 0.37));
+    }
 
     .text-secondary,
-        .price-prefix,
-        .price-value {
-        background: linear-gradient(180deg,
-                    #efc590 0%,
-                    var(--title-secondary-light) 14%,
-                    var(--title-secondary-bright) 34%,
-                    var(--title-secondary-mid) 58%,
-                    #7b4722 82%,
-            var(--title-secondary-deep) 100%);
-                -webkit-background-clip: text;
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
-                color: transparent;
-                -webkit-text-stroke: 0.013em var(--title-secondary-shadow);
-                filter: drop-shadow(0 2px 1px rgba(20, 11, 6, 0.2));
-            }
+    .price-prefix,
+    .price-value {
+        background: linear-gradient(
+            180deg,
+            #efc590 0%,
+            var(--title-secondary-light) 14%,
+            var(--title-secondary-bright) 34%,
+            var(--title-secondary-mid) 58%,
+            #7b4722 82%,
+            var(--title-secondary-deep) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        -webkit-text-stroke: 0.013em var(--title-secondary-shadow);
+        filter: drop-shadow(0 2px 1px rgba(20, 11, 6, 0.2));
+    }
 }
 
 .product-subtitle {
@@ -1059,6 +1080,14 @@ body:not([data-particles]) .page-shell {
     width: 100%;
     border: 1px solid rgba(243, 194, 123, 0.12);
 }
+
+.carousel-slide > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .media-carousel {
     position: relative;
     overflow: hidden;
@@ -1281,6 +1310,21 @@ body:not([data-particles]) .page-shell {
 .stat-box span {
     color: var(--muted-2);
 }
+
+.dashboard-note-label {
+    margin: 0 0 10px;
+    font-size: 1.02rem;
+}
+
+.dashboard-note p {
+    margin: 0.4rem 0 0;
+    color: var(--muted);
+}
+
+.dashboard-note-label + p {
+    margin-top: 0;
+}
+
 .site-footer {
     border-top: 1px solid rgba(243, 194, 123, 0.1);
     background: linear-gradient(180deg, rgba(7, 5, 3, 0.22), rgba(5, 3, 2, 0.58)), rgba(5, 3, 2, 0.26);
@@ -1344,10 +1388,10 @@ body:not([data-particles]) .page-shell {
         grid-template-columns: 1fr;
     }
 
-        .product-layout>*:not(.side-panel),
-        .product-layout>.side-panel {
-            grid-column: auto;
-            grid-row: auto;
+    .product-layout > *:not(.side-panel),
+    .product-layout > .side-panel {
+        grid-column: auto;
+        grid-row: auto;
     }
 
     .side-panel {
