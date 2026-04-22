@@ -245,7 +245,7 @@ a {
     gap: 10px;
     min-height: 48px;
     padding: 0 20px;
-    border-radius: 8px;
+    border-radius: 3px;
     border: 1px solid var(--line-2);
     background: linear-gradient(180deg, rgba(35, 20, 10, 0.44), rgba(12, 7, 4, 0.92));
     color: var(--text);
@@ -377,6 +377,7 @@ a {
 .card {
     background: linear-gradient(180deg, rgba(20, 11, 6, 0.84), rgba(10, 6, 4, 0.95));
     border: 1px solid var(--line);
+    border-radius: 3px;
     box-shadow: var(--shadow);
 }
 .product-card,
@@ -389,6 +390,7 @@ a {
 .hero-panel,
 .stat-box {
     position: relative;
+    border-radius: 3px;
     --card-hover-corner-opacity-1: 0.14;
     --card-hover-corner-opacity-2: 0.07;
     --card-hover-corner-opacity-3: 0.025;
@@ -446,6 +448,7 @@ a {
     content: '';
     position: absolute;
     inset: 0;
+    border-radius: 3px;
     border: 1px solid rgba(243, 194, 123, 0.08);
     background:
         radial-gradient(circle at 14% 10%,
@@ -538,11 +541,34 @@ a {
 .card-art {
     height: 250px;
     padding: 18px 18px 22px;
+    border-radius: inherit;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    overflow: hidden;
+    isolation: isolate;
     background:
         radial-gradient(circle at 50% 42%, rgba(255, 216, 148, 0.26), transparent 16%),
         radial-gradient(circle at 60% 28%, rgba(243, 162, 66, 0.18), transparent 24%),
         linear-gradient(180deg, #211208, #0f0905);
+    box-shadow:
+        inset 0 -44px 56px rgba(6, 4, 3, 0.42),
+        inset 0 1px 0 rgba(255, 244, 220, 0.04);
     position: relative;
+}
+
+.card-art::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 18%, rgba(255, 232, 192, 0.08), transparent 42%),
+        linear-gradient(180deg,
+            rgba(9, 5, 3, 0.04) 0%,
+            rgba(9, 5, 3, 0) 36%,
+            rgba(9, 5, 3, 0.18) 72%,
+            rgba(9, 5, 3, 0.62) 100%);
+    z-index: 1;
 }
 
 .card-art::after {
@@ -554,11 +580,12 @@ a {
     height: 1px;
     background: linear-gradient(90deg,
         transparent 0%,
-        rgba(243, 194, 123, 0.18) 16%,
-        rgba(243, 194, 123, 0.92) 50%,
-        rgba(243, 194, 123, 0.18) 84%,
+        rgba(243, 194, 123, 0.12) 16%,
+        rgba(243, 194, 123, 0.56) 50%,
+        rgba(243, 194, 123, 0.12) 84%,
         transparent 100%);
-    box-shadow: 0 0 10px rgba(243, 194, 123, 0.09);
+    box-shadow: 0 0 8px rgba(243, 194, 123, 0.05);
+    z-index: 2;
 }
 
 .card-art-icon {
@@ -586,13 +613,20 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 12px;
-    border: 1px solid rgba(243, 194, 123, 0.14);
+    border-radius: inherit;
+    border: 1px solid rgba(243, 194, 123, 0.08);
     box-shadow:
-        0 14px 28px rgba(0, 0, 0, 0.26),
-        0 0 0 1px rgba(255, 235, 199, 0.04);
-    opacity: 0.86;
-    mix-blend-mode: screen;
+        0 10px 24px rgba(0, 0, 0, 0.22),
+        0 0 0 1px rgba(255, 235, 199, 0.025);
+    opacity: 0.94;
+    mix-blend-mode: normal;
+    position: relative;
+    z-index: 0;
+}
+
+.card-art-icon svg {
+    position: relative;
+    z-index: 0;
 }
 
 .product-body {
