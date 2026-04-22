@@ -6,12 +6,110 @@ type Props = {
 };
 
 const { product } = Astro.props;
+const renderArtifactIcon = product.artwork === 'artifact';
 ---
 
 <article class="card product-card">
-  <div class:list={['card-art', { 'card-art-icon': !product.imageSrc }]}>
+  <div class:list={['card-art', { 'card-art-icon': !product.imageSrc, 'card-art-icon--artifact': renderArtifactIcon }]}>
     {product.imageSrc ? (
       <img src={product.imageSrc} alt={product.imageAlt ?? product.name} />
+    ) : renderArtifactIcon ? (
+      <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <filter id="pk2-soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
+            <feOffset dx="0" dy="2" result="off" />
+            <feComponentTransfer><feFuncA type="linear" slope="0.55" /></feComponentTransfer>
+            <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+          <filter id="pk2-inner-shadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="1.4" />
+            <feOffset dx="0" dy="1.2" result="off" />
+            <feComposite in="off" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="inner" />
+            <feColorMatrix in="inner" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0" result="shadow" />
+            <feMerge><feMergeNode in="SourceGraphic" /><feMergeNode in="shadow" /></feMerge>
+          </filter>
+          <linearGradient id="pk2-wood-front" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#b07236" />
+            <stop offset="40%" stop-color="#824a1b" />
+            <stop offset="100%" stop-color="#2d1706" />
+          </linearGradient>
+          <linearGradient id="pk2-wood-lid" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#e0a253" />
+            <stop offset="50%" stop-color="#8a4f1c" />
+            <stop offset="100%" stop-color="#3d2109" />
+          </linearGradient>
+          <linearGradient id="pk2-iron" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#14090c" />
+            <stop offset="40%" stop-color="#3a2a1c" />
+            <stop offset="55%" stop-color="#5a4228" />
+            <stop offset="70%" stop-color="#2a1d10" />
+            <stop offset="100%" stop-color="#0a0502" />
+          </linearGradient>
+          <linearGradient id="pk2-brass" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fff0b8" />
+            <stop offset="35%" stop-color="#e6b65b" />
+            <stop offset="70%" stop-color="#8a5a1e" />
+            <stop offset="100%" stop-color="#3a1f08" />
+          </linearGradient>
+          <linearGradient id="pk2-parchment" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fff8e4" />
+            <stop offset="55%" stop-color="#ead1a0" />
+            <stop offset="100%" stop-color="#8a6b3e" />
+          </linearGradient>
+          <radialGradient id="pk2-scroll-roll" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fff0c8" />
+            <stop offset="35%" stop-color="#d89a50" />
+            <stop offset="70%" stop-color="#7a4518" />
+            <stop offset="100%" stop-color="#2a1607" />
+          </radialGradient>
+          <radialGradient id="pk2-wax" cx="40%" cy="35%" r="75%">
+            <stop offset="0%" stop-color="#f06a4f" />
+            <stop offset="45%" stop-color="#a8321e" />
+            <stop offset="100%" stop-color="#3a0a05" />
+          </radialGradient>
+          <linearGradient id="pk2-feather-vane" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff6e2" />
+            <stop offset="45%" stop-color="#f0c078" />
+            <stop offset="100%" stop-color="#4a2a0e" />
+          </linearGradient>
+          <radialGradient id="pk2-glow" cx="50%" cy="50%" r="55%">
+            <stop offset="0%" stop-color="#ffd089" stop-opacity=".5" />
+            <stop offset="100%" stop-color="#ffd089" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+        <circle cx="160" cy="108" r="102" fill="url(#pk2-glow)" />
+        <ellipse cx="160" cy="198" rx="118" ry="10" fill="rgba(0,0,0,0.45)" />
+        <g transform="translate(60 14) rotate(-18)" filter="url(#pk2-soft-shadow)">
+          <path d="M4 4 C -14 30, -18 70, -6 108 C 0 120, 8 128, 12 132 C 16 128, 24 120, 30 108 C 42 70, 38 30, 20 4 C 16 0, 8 0, 4 4 Z" fill="url(#pk2-feather-vane)" stroke="#3a1f08" stroke-width="1.2" />
+          <path d="M12 6 C 0 28, -4 70, 4 108 C 8 120, 12 128, 12 132 L 12 6 Z" fill="rgba(255,246,226,0.18)" />
+        </g>
+        <g filter="url(#pk2-soft-shadow)">
+          <path d="M112 44 q28 -10 62 -2 q34 8 52 28 l10 14 l-18 6 q-19 5 -46 0 q-27 -6 -52 -26 q-18 -14 -26 -20 q-8 -6 -7 -12 q1 -6 25 -12Z" fill="url(#pk2-parchment)" stroke="#6a4520" stroke-width="2" />
+          <ellipse cx="109" cy="58" rx="15" ry="15" fill="url(#pk2-scroll-roll)" stroke="#6a4520" stroke-width="2" />
+          <ellipse cx="223" cy="77" rx="13" ry="13" fill="url(#pk2-scroll-roll)" stroke="#6a4520" stroke-width="2" />
+          <circle cx="158" cy="88" r="11" fill="url(#pk2-wax)" stroke="#5a130d" stroke-width="2" />
+        </g>
+        <g filter="url(#pk2-inner-shadow)">
+          <path d="M72 102 q0 -16 88 -16 q88 0 88 16 v8 q-18 10 -41 15 q-23 5 -47 5 q-24 0 -47 -5 q-23 -5 -41 -15Z" fill="url(#pk2-wood-lid)" stroke="#2d1706" stroke-width="2.2" />
+          <rect x="78" y="108" width="164" height="74" rx="4" fill="url(#pk2-wood-front)" stroke="#2d1706" stroke-width="2.2" />
+          <rect x="138" y="102" width="44" height="80" rx="4" fill="url(#pk2-iron)" opacity="0.9" />
+          <rect x="74" y="128" width="172" height="10" fill="url(#pk2-iron)" opacity="0.65" />
+          <rect x="143" y="126" width="34" height="32" rx="3" fill="url(#pk2-brass)" stroke="#4a260b" stroke-width="2" />
+          <circle cx="160" cy="141" r="5" fill="#5e3414" />
+          <circle cx="110" cy="119" r="5" fill="url(#pk2-brass)" />
+          <circle cx="160" cy="116" r="5" fill="url(#pk2-brass)" />
+          <circle cx="210" cy="119" r="5" fill="url(#pk2-brass)" />
+        </g>
+        <g fill="#fff6e2">
+          <path d="M70 70 L73 78 L81 81 L73 84 L70 92 L67 84 L59 81 L67 78 Z" opacity="0.85" />
+          <path d="M262 98 L264 104 L270 106 L264 108 L262 114 L260 108 L254 106 L260 104 Z" opacity="0.7" />
+          <circle cx="270" cy="60" r="1.8" opacity="0.75" />
+          <circle cx="40" cy="104" r="1.4" opacity="0.65" />
+          <circle cx="282" cy="140" r="1.3" opacity="0.55" />
+          <circle cx="48" cy="160" r="1" opacity="0.5" />
+        </g>
+      </svg>
     ) : (
       <div class="product-monogram" aria-hidden="true">{product.monogram}</div>
     )}
@@ -20,7 +118,10 @@ const { product } = Astro.props;
     <h3>{product.name}</h3>
     <p>{product.description}</p>
     <div class="price-row">
-      <div class="price"><span class="price-value">{product.priceLabel}</span></div>
+      <div class="price">
+        {product.pricePrefix && <span class="price-prefix">{product.pricePrefix}</span>}
+        <span class="price-value">{product.priceLabel}</span>
+      </div>
       <span class="badge">{product.badge}</span>
     </div>
     <a class="btn" href={product.href}>{product.ctaLabel ?? 'Explore'}</a>

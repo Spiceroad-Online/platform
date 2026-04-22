@@ -17,11 +17,13 @@ export type FeaturedProduct = {
     name: string;
     description: string;
     priceLabel: string;
+    pricePrefix?: string;
     badge: string;
     href: string;
     imageSrc?: string;
     imageAlt?: string;
     monogram?: string;
+    artwork?: 'artifact' | 'monogram';
     ctaLabel?: string;
 };
 
@@ -109,7 +111,8 @@ export const featuredProducts: FeaturedProduct[] = [
         name: 'Game Launcher',
         description:
             'Fully customizable game launcher package inspired by in-game launcher aesthetics and modern product UX.',
-        priceLabel: 'From $149',
+        pricePrefix: 'From',
+        priceLabel: '$149',
         badge: 'Source',
         href: routes.launcher,
         imageSrc: launcherScreen.src,
@@ -119,12 +122,13 @@ export const featuredProducts: FeaturedProduct[] = [
     {
         slug: 'pk2-tools',
         name: 'PK2 Tools Suite',
-        description: 'Free member-gated utilities and archive workflow helpers for builders and editors.',
+        description: 'Free gated toolkit area for PK2 editing, extraction, and archive workflow resources.',
         priceLabel: 'Free',
-        badge: 'Gated',
+        badge: 'Login',
         href: routes.freeResources,
+        artwork: 'artifact',
         monogram: 'PK2',
-        ctaLabel: 'Open Library',
+        ctaLabel: 'Login to Download',
     },
 ];
 
@@ -412,16 +416,19 @@ export const freeResources: ResourceSummary[] = [
 
 export const platformHighlights = [
     {
-        title: 'Structured catalog',
-        copy: 'Products, guides, and gated resources now live as shared source data instead of repeated page markup.',
+        icon: 'tools',
+        title: 'Exclusive Dev Tools',
+        copy: 'High-end PK2 editors, script generators, launcher builders, and other technical resources for advanced Silkroad workflows.',
     },
     {
-        title: 'Static-first delivery',
-        copy: 'Astro builds the public site while keeping the Pages deployment contract pointed at the generated site folder.',
+        icon: 'support',
+        title: 'Dedicated Support',
+        copy: 'Expert guidance for launcher customization, packaging flows, delivery portals, and infrastructure hardening.',
     },
     {
-        title: 'Backend-ready shell',
-        copy: 'The account area and upload surfaces are now isolated as UI concerns, ready for future API wiring.',
+        icon: 'resources',
+        title: 'Premium Resources',
+        copy: 'Free and paid content organized into a member-friendly experience with SEO-friendly public pages and gated delivery.',
     },
 ];
 

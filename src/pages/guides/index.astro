@@ -1,5 +1,4 @@
 ---
-import CtaBand from '../../components/astro/CtaBand.astro';
 import PageHeader from '../../components/astro/PageHeader.astro';
 import { listGuides } from '../../lib/content';
 import { routes } from '../../lib/routes';
@@ -35,11 +34,4 @@ const guides = listGuides();
       </div>
     </div>
   </section>
-
-  <CtaBand
-    title="Build a content engine beside the catalog"
-    copy="Guides, FAQs, and resource pages should now expand from structured content so the platform can grow without repeating SEO copy across templates."
-    primaryLabel="Browse Products"
-    primaryHref={routes.products}
-  />
 </MarketingLayout>

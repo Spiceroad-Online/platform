@@ -1,5 +1,6 @@
 ---
 type Feature = {
+  icon?: 'tools' | 'support' | 'resources';
   title: string;
   copy: string;
 };
@@ -15,9 +16,108 @@ const { items } = Astro.props;
   <div class="container">
     <div class="grid-3">
       {items.map((item) => (
-        <article class="detail-card">
-          <h3>{item.title}</h3>
-          <p>{item.copy}</p>
+        <article class="feature-box">
+          {item.icon && (
+            <div class="feature-icon" aria-hidden="true">
+              {item.icon === 'tools' && (
+                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="fi-blade" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#fff1d4"/>
+                      <stop offset="55%" stop-color="#f3c27b"/>
+                      <stop offset="100%" stop-color="#6b3e16"/>
+                    </linearGradient>
+                    <linearGradient id="fi-hilt" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#f3c27b"/>
+                      <stop offset="100%" stop-color="#4a2a0e"/>
+                    </linearGradient>
+                    <radialGradient id="fi-glow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#ffd089" stop-opacity=".55"/>
+                      <stop offset="100%" stop-color="#ffd089" stop-opacity="0"/>
+                    </radialGradient>
+                  </defs>
+                  <circle cx="32" cy="32" r="22" fill="url(#fi-glow)"/>
+                  <g transform="rotate(45 32 32)">
+                    <rect x="30.5" y="8" width="3" height="32" fill="url(#fi-blade)" stroke="#2a1607" stroke-width=".6"/>
+                    <rect x="26" y="40" width="12" height="2.5" fill="url(#fi-hilt)"/>
+                    <rect x="30.25" y="42.5" width="3.5" height="9" fill="url(#fi-hilt)"/>
+                    <circle cx="32" cy="53.5" r="2.2" fill="url(#fi-hilt)" stroke="#2a1607" stroke-width=".5"/>
+                  </g>
+                  <g transform="rotate(-45 32 32)">
+                    <rect x="30.5" y="8" width="3" height="32" fill="url(#fi-blade)" stroke="#2a1607" stroke-width=".6"/>
+                    <rect x="26" y="40" width="12" height="2.5" fill="url(#fi-hilt)"/>
+                    <rect x="30.25" y="42.5" width="3.5" height="9" fill="url(#fi-hilt)"/>
+                    <circle cx="32" cy="53.5" r="2.2" fill="url(#fi-hilt)" stroke="#2a1607" stroke-width=".5"/>
+                  </g>
+                </svg>
+              )}
+              {item.icon === 'support' && (
+                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="fi-shield" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#ffe2b8"/>
+                      <stop offset="50%" stop-color="#c98a3e"/>
+                      <stop offset="100%" stop-color="#4a2a0e"/>
+                    </linearGradient>
+                    <radialGradient id="fi-glow2" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#ffd089" stop-opacity=".55"/>
+                      <stop offset="100%" stop-color="#ffd089" stop-opacity="0"/>
+                    </radialGradient>
+                  </defs>
+                  <circle cx="32" cy="32" r="22" fill="url(#fi-glow2)"/>
+                  <path d="M32 10 L50 16 V32 C50 43 42 51 32 55 C22 51 14 43 14 32 V16 Z" fill="url(#fi-shield)" stroke="#2a1607" stroke-width="1"/>
+                  <path d="M32 14 L46 19 V32 C46 41 39.5 48 32 51 C24.5 48 18 41 18 32 V19 Z" fill="none" stroke="#fff1d4" stroke-width=".6" opacity=".55"/>
+                  <path d="M32 20 V44 M22 32 H42" stroke="#2a1607" stroke-width="1.5" opacity=".45"/>
+                  <circle cx="32" cy="32" r="4" fill="#f3c27b" stroke="#2a1607" stroke-width=".8"/>
+                  <circle cx="32" cy="32" r="1.5" fill="#fff1d4"/>
+                  <path d="M28 10 L32 6 L36 10 Z" fill="#f3c27b" stroke="#2a1607" stroke-width=".6"/>
+                </svg>
+              )}
+              {item.icon === 'resources' && (
+                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="fi-chest-lid" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#f3c27b"/>
+                      <stop offset="100%" stop-color="#7a4518"/>
+                    </linearGradient>
+                    <linearGradient id="fi-chest-body" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#a8692e"/>
+                      <stop offset="100%" stop-color="#3a2009"/>
+                    </linearGradient>
+                    <radialGradient id="fi-coin-glow" cx="50%" cy="40%" r="60%">
+                      <stop offset="0%" stop-color="#fff1b8" stop-opacity=".95"/>
+                      <stop offset="70%" stop-color="#f3c27b" stop-opacity=".4"/>
+                      <stop offset="100%" stop-color="#ffd089" stop-opacity="0"/>
+                    </radialGradient>
+                    <radialGradient id="fi-glow3" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#ffd089" stop-opacity=".5"/>
+                      <stop offset="100%" stop-color="#ffd089" stop-opacity="0"/>
+                    </radialGradient>
+                  </defs>
+                  <circle cx="32" cy="32" r="22" fill="url(#fi-glow3)"/>
+                  <ellipse cx="32" cy="30" rx="20" ry="10" fill="url(#fi-coin-glow)"/>
+                  <rect x="12" y="32" width="40" height="20" rx="1.5" fill="url(#fi-chest-body)" stroke="#2a1607" stroke-width="1"/>
+                  <path d="M12 32 Q12 20 32 18 Q52 20 52 32 Z" fill="url(#fi-chest-lid)" stroke="#2a1607" stroke-width="1"/>
+                  <path d="M20 32 Q21 22 32 20 Q43 22 44 32" fill="none" stroke="#2a1607" stroke-width=".8" opacity=".55"/>
+                  <line x1="12" y1="40" x2="52" y2="40" stroke="#2a1607" stroke-width=".8" opacity=".5"/>
+                  <line x1="22" y1="32" x2="22" y2="52" stroke="#2a1607" stroke-width=".8" opacity=".5"/>
+                  <line x1="42" y1="32" x2="42" y2="52" stroke="#2a1607" stroke-width=".8" opacity=".5"/>
+                  <rect x="29" y="36" width="6" height="6" fill="#f3c27b" stroke="#2a1607" stroke-width=".6"/>
+                  <circle cx="32" cy="39" r="1" fill="#2a1607"/>
+                  <circle cx="24" cy="34" r="2.4" fill="#ffe08a" stroke="#8a541f" stroke-width=".5"/>
+                  <circle cx="32" cy="33" r="2.4" fill="#ffe08a" stroke="#8a541f" stroke-width=".5"/>
+                  <circle cx="40" cy="34" r="2.4" fill="#ffe08a" stroke="#8a541f" stroke-width=".5"/>
+                  <path d="M32 12 L33 15 L32 18 L31 15 Z" fill="#fff1d4" opacity=".9"/>
+                  <path d="M46 18 L47 20.5 L46 23 L45 20.5 Z" fill="#fff1d4" opacity=".7"/>
+                  <path d="M18 18 L19 20.5 L18 23 L17 20.5 Z" fill="#fff1d4" opacity=".7"/>
+                </svg>
+              )}
+            </div>
+          )}
+          <div>
+            <h3>{item.title}</h3>
+            <p>{item.copy}</p>
+          </div>
         </article>
       ))}
     </div>

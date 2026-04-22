@@ -1,5 +1,4 @@
 ---
-import CtaBand from '../components/astro/CtaBand.astro';
 import PageHeader from '../components/astro/PageHeader.astro';
 import { listFreeResources } from '../lib/content';
 import { routes } from '../lib/routes';
@@ -38,11 +37,4 @@ const resources = listFreeResources();
       </div>
     </div>
   </section>
-
-  <CtaBand
-    title="Make the library work for SEO"
-    copy="Keep high-intent resources publicly visible, then move the actual claim flow into the account system where entitlement and delivery can be enforced."
-    primaryLabel="Open Dashboard"
-    primaryHref={routes.dashboard}
-  />
 </MarketingLayout>
