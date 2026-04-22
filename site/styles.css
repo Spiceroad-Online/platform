@@ -9,8 +9,8 @@
     --muted-2: #b89062;
     --gold: #f3c27b;
     --gold-2: #d98b33;
-        --gold-3: #8a541f;
-        --title-gold-light: #fff1cf;
+    --gold-3: #8a541f;
+    --title-gold-light: #fff1cf;
         --title-gold-mid: #efc98e;
         --title-gold-deep: #c67b2f;
         --title-gold-shadow: rgba(45, 20, 6, 0.72);
@@ -249,8 +249,8 @@ a {
     border: 1px solid var(--line-2);
     background: linear-gradient(180deg, rgba(35, 20, 10, 0.44), rgba(12, 7, 4, 0.92));
     color: var(--text);
-        font-weight: 600;
-        letter-spacing: 0.01em;
+    font-weight: 600;
+    letter-spacing: 0.01em;
         box-shadow:
         inset 0 0 0 1px rgba(255, 255, 255, 0.03),
         0 12px 30px rgba(0, 0, 0, 0.22);
@@ -302,7 +302,7 @@ a {
     color: var(--gold);
     text-transform: uppercase;
     font-size: 0.76rem;
-        letter-spacing: 0.11em;
+    letter-spacing: 0.11em;
 }
 .page-hero {
     position: relative;
@@ -389,9 +389,36 @@ a {
 .hero-panel,
 .stat-box {
     position: relative;
+    --card-hover-corner-opacity-1: 0.14;
+    --card-hover-corner-opacity-2: 0.07;
+    --card-hover-corner-opacity-3: 0.025;
+    --card-hover-corner-size: 28%;
+    --card-hover-top-line-size: 34%;
+    --card-hover-left-line-size: 32%;
+    --card-hover-overlay-opacity: 0.22;
+    --card-hover-border-color: rgba(255, 212, 138, 0.1);
+    --card-hover-glow-a: rgba(243, 194, 123, 0.04);
+    --card-hover-glow-b: rgba(255, 214, 140, 0.03);
     transition:
         border-color 0.22s ease,
         box-shadow 0.22s ease;
+}
+
+.product-card,
+.hero-panel,
+.side-panel,
+.detail-card,
+.dashboard-panel {
+    --card-hover-corner-opacity-1: 0.2;
+    --card-hover-corner-opacity-2: 0.1;
+    --card-hover-corner-opacity-3: 0.035;
+    --card-hover-corner-size: 40%;
+    --card-hover-top-line-size: 46%;
+    --card-hover-left-line-size: 42%;
+    --card-hover-overlay-opacity: 0.3;
+    --card-hover-border-color: rgba(255, 212, 138, 0.14);
+    --card-hover-glow-a: rgba(243, 194, 123, 0.055);
+    --card-hover-glow-b: rgba(255, 214, 140, 0.04);
 }
 
 .product-card {
@@ -422,23 +449,23 @@ a {
     border: 1px solid rgba(243, 194, 123, 0.08);
     background:
         radial-gradient(circle at 14% 10%,
-            rgba(255, 243, 219, 0.16) 0%,
-            rgba(255, 224, 173, 0.08) 10%,
-            rgba(255, 224, 173, 0.03) 18%,
-            transparent 30%),
-        linear-gradient(90deg,
-            rgba(255, 233, 193, 0) 0%,
-            rgba(255, 233, 193, 0.14) 18%,
-            rgba(255, 245, 224, 0.32) 42%,
-            rgba(255, 224, 173, 0.12) 66%,
-            rgba(255, 224, 173, 0) 100%) 0 0 / 36% 1px no-repeat,
-        linear-gradient(180deg,
-            rgba(255, 233, 193, 0) 0%,
-            rgba(255, 233, 193, 0.14) 18%,
-            rgba(255, 245, 224, 0.3) 42%,
-            rgba(255, 224, 173, 0.12) 66%,
-            rgba(255, 224, 173, 0) 100%) 0 0 / 1px 34% no-repeat,
-        linear-gradient(180deg, rgba(255, 245, 224, 0.012), transparent 24%);
+                rgba(255, 243, 219, var(--card-hover-corner-opacity-1)) 0%,
+                rgba(255, 224, 173, var(--card-hover-corner-opacity-2)) 11%,
+                rgba(255, 224, 173, var(--card-hover-corner-opacity-3)) 18%,
+                transparent var(--card-hover-corner-size)) 0 0 / 100% 100% no-repeat,
+                    linear-gradient(90deg,
+                        rgba(255, 233, 193, 0) 0%,
+                        rgba(255, 233, 193, 0.12) 20%,
+                        rgba(255, 245, 224, 0.24) 44%,
+                        rgba(255, 224, 173, 0.08) 66%,
+                rgba(255, 224, 173, 0) 100%) 0 0 / var(--card-hover-top-line-size) 1px no-repeat,
+                    linear-gradient(180deg,
+                        rgba(255, 233, 193, 0) 0%,
+                        rgba(255, 233, 193, 0.12) 20%,
+                        rgba(255, 245, 224, 0.22) 44%,
+                        rgba(255, 224, 173, 0.08) 66%,
+                rgba(255, 224, 173, 0) 100%) 0 0 / 1px var(--card-hover-left-line-size) no-repeat,
+        linear-gradient(180deg, rgba(255, 245, 224, 0.01), transparent 22%);
     box-shadow:
         inset 0 0 0 1px rgba(255, 244, 220, 0.012),
         0 0 0 rgba(243, 194, 123, 0);
@@ -495,13 +522,12 @@ a {
 .hero-panel:hover::after,
 .side-panel:hover::after,
 .stat-box:hover::after {
-    opacity: 0.28;
-    border-color: rgba(255, 212, 138, 0.12);
+    opacity: var(--card-hover-overlay-opacity);
+    border-color: var(--card-hover-border-color);
     box-shadow:
-        inset 0 0 0 1px rgba(255, 244, 220, 0.018),
-    0 0 6px rgba(243, 194, 123, 0.05),
-    0 0 12px rgba(243, 162, 66, 0.018),
-    -6px -6px 18px rgba(255, 214, 140, 0.04);
+        inset 0 0 0 1px rgba(255, 244, 220, 0.016),
+        0 0 5px var(--card-hover-glow-a),
+        -5px -5px 14px var(--card-hover-glow-b);
 }
 
 .product-card:hover::before {
@@ -825,7 +851,7 @@ body:not([data-particles]) .page-shell {
         0 1.1px 0 rgba(255, 244, 220, 0.33),
         0 2.2px 0 rgba(145, 89, 34, 0.46),
         0 12px 24px rgba(0, 0, 0, 0.34),
-            0 0 18px var(--title-gold-glow);
+        0 0 18px var(--title-gold-glow);
 }
 
 .text-secondary,
@@ -846,8 +872,8 @@ body:not([data-particles]) .page-shell {
     .product-head h1,
     .hero-panel-body h1,
     .product-overview-card h1,
-        .product-body h3,
-        .feature-box h3,
+    .product-body h3,
+    .feature-box h3,
         .guide-card h3,
         .resource-card h3,
         .detail-card h2,
@@ -957,7 +983,7 @@ body:not([data-particles]) .page-shell {
     background: var(--gold);
     position: absolute;
     left: 0;
-        top: 0.7em;
+    top: 0.7em;
 }
 
 .split-two {
