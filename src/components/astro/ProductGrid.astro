@@ -1,0 +1,15 @@
+---
+import type { FeaturedProduct } from '../../content/platform';
+import ProductCard from './ProductCard.astro';
+
+type Props = {
+  products: FeaturedProduct[];
+  columns?: 'grid-3' | 'grid-4';
+};
+
+const { products, columns = 'grid-3' } = Astro.props;
+---
+
+<div class={columns}>
+  {products.map((product) => <ProductCard product={product} />)}
+</div>

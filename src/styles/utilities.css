@@ -1,0 +1,30 @@
+.product-monogram {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 220px;
+  border: 1px solid rgba(243, 194, 123, 0.2);
+  background:
+    radial-gradient(circle at top, rgba(243, 194, 123, 0.22), transparent 55%),
+    linear-gradient(180deg, rgba(52, 28, 14, 0.9), rgba(12, 7, 4, 0.94));
+  color: var(--title-gold-light);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.section-tight {
+  padding-top: 0;
+}
+
+.cta-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.stack-gap-sm {
+  display: grid;
+  gap: 12px;
+}

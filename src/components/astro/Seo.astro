@@ -1,0 +1,19 @@
+---
+import { buildSeo } from '../../lib/seo';
+
+type Props = {
+  title?: string;
+  description?: string;
+  pathname?: string;
+};
+
+const seo = buildSeo(Astro.props);
+---
+
+<title>{seo.title}</title>
+<meta name="description" content={seo.description} />
+<link rel="canonical" href={seo.canonical} />
+<meta property="og:title" content={seo.title} />
+<meta property="og:description" content={seo.description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={seo.canonical} />

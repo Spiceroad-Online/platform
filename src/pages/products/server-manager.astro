@@ -1,0 +1,35 @@
+---
+import PageHeader from '../../components/astro/PageHeader.astro';
+import ProductDetailView from '../../components/astro/ProductDetailView.astro';
+import { getProductBySlug } from '../../lib/content';
+import { routes } from '../../lib/routes';
+import MarketingLayout from '../../layouts/MarketingLayout.astro';
+
+const product = getProductBySlug('server-manager');
+
+if (!product) {
+  throw new Error('Server manager product content is missing.');
+}
+---
+
+<MarketingLayout
+  title="Server Manager"
+  description="Server manager interface package for Silkroad private servers, covering configuration, monitoring, and admin operations."
+  pathname={Astro.url.pathname}
+>
+  <section class="page-shell">
+    <div class="container">
+      <PageHeader
+        title="Server Manager"
+        copy="An operator-facing control panel surface for configuration, monitoring, and day-to-day Silkroad infrastructure work."
+        breadcrumbs={[
+          { label: 'Home', href: routes.home },
+          { label: 'Products', href: routes.products },
+          { label: 'Server Manager' },
+        ]}
+      />
+
+      <ProductDetailView product={product} />
+    </div>
+  </section>
+</MarketingLayout>

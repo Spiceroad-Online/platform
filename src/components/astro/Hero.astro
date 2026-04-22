@@ -1,0 +1,27 @@
+---
+import type { ActionLink } from '../../content/platform';
+
+type Props = {
+  titleLines: string[];
+  copy: string;
+  primaryAction: ActionLink;
+  secondaryAction: ActionLink;
+};
+
+const { titleLines, copy, primaryAction, secondaryAction } = Astro.props;
+---
+
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-inner">
+      <h1 class="hero-title">
+        {titleLines.map((line) => <span class="hero-title-line">{line}</span>)}
+      </h1>
+      <p class="hero-copy">{copy}</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={primaryAction.href}>{primaryAction.label}</a>
+        <a class="btn btn-ghost" href={secondaryAction.href}>{secondaryAction.label}</a>
+      </div>
+    </div>
+  </div>
+</section>

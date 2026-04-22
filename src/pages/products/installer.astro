@@ -1,0 +1,35 @@
+---
+import PageHeader from '../../components/astro/PageHeader.astro';
+import ProductDetailView from '../../components/astro/ProductDetailView.astro';
+import { getProductBySlug } from '../../lib/content';
+import { routes } from '../../lib/routes';
+import MarketingLayout from '../../layouts/MarketingLayout.astro';
+
+const product = getProductBySlug('installer');
+
+if (!product) {
+  throw new Error('Installer product content is missing.');
+}
+---
+
+<MarketingLayout
+  title="Game Installer"
+  description="Upload-based installer build service for Silkroad private servers."
+  pathname={Astro.url.pathname}
+>
+  <section class="page-shell">
+    <div class="container">
+      <PageHeader
+        title="Game Installer"
+        copy="A branded installer service for private delivery flows, upload intake, and polished client setup screens."
+        breadcrumbs={[
+          { label: 'Home', href: routes.home },
+          { label: 'Products', href: routes.products },
+          { label: 'Game Installer' },
+        ]}
+      />
+
+      <ProductDetailView product={product} />
+    </div>
+  </section>
+</MarketingLayout>

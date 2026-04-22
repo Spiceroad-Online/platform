@@ -1,0 +1,35 @@
+---
+import PageHeader from '../../components/astro/PageHeader.astro';
+import ProductDetailView from '../../components/astro/ProductDetailView.astro';
+import { getProductBySlug } from '../../lib/content';
+import { routes } from '../../lib/routes';
+import MarketingLayout from '../../layouts/MarketingLayout.astro';
+
+const product = getProductBySlug('launcher');
+
+if (!product) {
+  throw new Error('Launcher product content is missing.');
+}
+---
+
+<MarketingLayout
+  title="Game Launcher"
+  description="Premium Silkroad game launcher product page with screenshots, modules, pricing, and deliverables."
+  pathname={Astro.url.pathname}
+>
+  <section class="page-shell">
+    <div class="container">
+      <PageHeader
+        title="Game Launcher"
+        copy="A premium launcher package built for serious private-server branding and polished first-launch presentation."
+        breadcrumbs={[
+          { label: 'Home', href: routes.home },
+          { label: 'Products', href: routes.products },
+          { label: 'Game Launcher' },
+        ]}
+      />
+
+      <ProductDetailView product={product} />
+    </div>
+  </section>
+</MarketingLayout>

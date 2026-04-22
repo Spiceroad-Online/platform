@@ -1,0 +1,36 @@
+---
+import logoPlatform from '../../assets/logo-platform.png';
+import { primaryNavigation, routes } from '../../lib/routes';
+
+type Props = {
+  pathname: string;
+};
+
+const { pathname } = Astro.props;
+
+const isActive = (href: string) => {
+  if (href === '/') {
+    return pathname === '/';
+  }
+
+  return pathname === href || pathname.startsWith(href);
+};
+---
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href={routes.home}>
+      <img src={logoPlatform.src} alt="Spiceroad Platform" />
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      {primaryNavigation.map((item) => (
+        <a href={item.href} class:list={{ active: isActive(item.href) }}>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-primary" href={routes.dashboard}>Account</a>
+    </div>
+  </div>
+</header>

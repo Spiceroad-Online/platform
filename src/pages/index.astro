@@ -1,0 +1,43 @@
+---
+import Hero from '../components/astro/Hero.astro';
+import FeatureStrip from '../components/astro/FeatureStrip.astro';
+import ProductCard from '../components/astro/ProductCard.astro';
+import SectionTitle from '../components/astro/SectionTitle.astro';
+import { featuredProducts, homepageHero, platformHighlights } from '../content/platform';
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+---
+
+<MarketingLayout
+  title="Premium Silkroad Resources"
+  description="Premium Silkroad Online private server resources, launcher assets, PK2 tooling, gated downloads, and custom build services."
+  pathname={Astro.url.pathname}
+>
+  <Hero {...homepageHero} />
+
+  <section class="section">
+    <div class="container">
+      <SectionTitle
+        title="Best-Selling Resources"
+        copy="This front page follows the existing platform mockup while moving the implementation into a reusable Astro source structure."
+      />
+      <div class="grid-3">
+        {featuredProducts.map((product) => <ProductCard product={product} />)}
+      </div>
+    </div>
+  </section>
+
+  <FeatureStrip items={platformHighlights} />
+
+  <section class="cta-center">
+    <div class="container">
+      <h2 class="section-title">Empower Your Silkroad Server</h2>
+      <p>
+        Use this as the base for platform.spiceroad.online and expand it into a real storefront
+        with auth, checkout, order tracking, and upload flows.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/products/">Explore Products</a>
+      </div>
+    </div>
+  </section>
+</MarketingLayout>

@@ -1,0 +1,45 @@
+---
+import CtaBand from '../../components/astro/CtaBand.astro';
+import PageHeader from '../../components/astro/PageHeader.astro';
+import { listGuides } from '../../lib/content';
+import { routes } from '../../lib/routes';
+import MarketingLayout from '../../layouts/MarketingLayout.astro';
+
+const guides = listGuides();
+---
+
+<MarketingLayout
+  title="Guides"
+  description="SEO-friendly guide hub for Silkroad private-server resources, tooling, and setup workflows."
+  pathname={Astro.url.pathname}
+>
+  <section class="page-shell">
+    <div class="container">
+      <PageHeader
+        title="Guides"
+        copy="Product pages sell, but guides build discoverability and trust. This route is now a real source page rather than duplicated static markup."
+        breadcrumbs={[
+          { label: 'Home', href: routes.home },
+          { label: 'Guides' },
+        ]}
+      />
+
+      <div class="guides-grid">
+        {guides.map((guide) => (
+          <article class="guide-card">
+            <div class="meta">{guide.meta}</div>
+            <h3>{guide.title}</h3>
+            <p>{guide.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Build a content engine beside the catalog"
+    copy="Guides, FAQs, and resource pages should now expand from structured content so the platform can grow without repeating SEO copy across templates."
+    primaryLabel="Browse Products"
+    primaryHref={routes.products}
+  />
+</MarketingLayout>

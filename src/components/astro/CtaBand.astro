@@ -1,0 +1,29 @@
+---
+type Props = {
+  title: string;
+  copy: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+};
+
+const { title, copy, primaryLabel, primaryHref, secondaryLabel, secondaryHref } = Astro.props;
+---
+
+<section class="section section-tight">
+  <div class="container">
+    <article class="detail-card cta-band">
+      <div>
+        <h2>{title}</h2>
+        <p>{copy}</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={primaryHref}>{primaryLabel}</a>
+        {secondaryLabel && secondaryHref && (
+          <a class="btn btn-ghost" href={secondaryHref}>{secondaryLabel}</a>
+        )}
+      </div>
+    </article>
+  </div>
+</section>

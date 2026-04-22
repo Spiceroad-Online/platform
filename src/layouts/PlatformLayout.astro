@@ -1,0 +1,15 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+type Props = {
+  title: string;
+  description: string;
+  pathname: string;
+};
+
+const props = Astro.props;
+---
+
+<BaseLayout {...props} hasParticles={false}>
+  <slot />
+</BaseLayout>

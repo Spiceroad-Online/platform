@@ -1,0 +1,25 @@
+---
+type Crumb = {
+  label: string;
+  href?: string;
+};
+
+type Props = {
+  title: string;
+  copy: string;
+  breadcrumbs: Crumb[];
+};
+
+const { title, copy, breadcrumbs } = Astro.props;
+---
+
+<div class="breadcrumbs">
+  {breadcrumbs.map((crumb, index) => (
+    <>
+      {index > 0 && ' / '}
+      {crumb.href ? <a href={crumb.href}>{crumb.label}</a> : <span>{crumb.label}</span>}
+    </>
+  ))}
+</div>
+<h1 class="section-title">{title}</h1>
+<p class="section-copy">{copy}</p>

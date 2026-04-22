@@ -1,0 +1,48 @@
+---
+import CtaBand from '../components/astro/CtaBand.astro';
+import PageHeader from '../components/astro/PageHeader.astro';
+import { listFreeResources } from '../lib/content';
+import { routes } from '../lib/routes';
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+
+const resources = listFreeResources();
+---
+
+<MarketingLayout
+  title="Free Resources"
+  description="Free gated resource library for Silkroad private-server operators."
+  pathname={Astro.url.pathname}
+>
+  <section class="page-shell">
+    <div class="container">
+      <PageHeader
+        title="Free Resources"
+        copy="Publicly discoverable, but account-gated before download. This keeps the library indexable while protecting delivery."
+        breadcrumbs={[
+          { label: 'Home', href: routes.home },
+          { label: 'Free Resources' },
+        ]}
+      />
+
+      <div class="resources-grid">
+        {resources.map((resource) => (
+          <article class="resource-card">
+            <div class="meta">{resource.meta}</div>
+            <h3>{resource.title}</h3>
+            <p>{resource.description}</p>
+            <div class="stack-gap-sm resource-card-actions">
+              <a class="btn" href={resource.href}>{resource.ctaLabel}</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Make the library work for SEO"
+    copy="Keep high-intent resources publicly visible, then move the actual claim flow into the account system where entitlement and delivery can be enforced."
+    primaryLabel="Open Dashboard"
+    primaryHref={routes.dashboard}
+  />
+</MarketingLayout>

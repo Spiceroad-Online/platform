@@ -1,0 +1,38 @@
+---
+import CtaBand from '../../components/astro/CtaBand.astro';
+import PageHeader from '../../components/astro/PageHeader.astro';
+import ProductGrid from '../../components/astro/ProductGrid.astro';
+import { listProducts } from '../../lib/content';
+import { routes } from '../../lib/routes';
+import MarketingLayout from '../../layouts/MarketingLayout.astro';
+
+const products = listProducts();
+---
+
+<MarketingLayout
+  title="Products"
+  description="Browse premium Silkroad products: game launcher, game installer, PK2 tooling, and server resources."
+  pathname={Astro.url.pathname}
+>
+  <section class="page-shell">
+    <div class="container">
+      <PageHeader
+        title="Products"
+        copy="A unified catalog for player-facing launcher UX, branded installer delivery, server operations tooling, and gated utility products."
+        breadcrumbs={[
+          { label: 'Home', href: routes.home },
+          { label: 'Products' },
+        ]}
+      />
+
+      <ProductGrid products={products} columns="grid-4" />
+    </div>
+  </section>
+
+  <CtaBand
+    title="Need a bundled delivery stack?"
+    copy="Pair the launcher, installer, and operator tooling into one branded platform experience with a single account area and gated delivery model."
+    primaryLabel="Get Membership"
+    primaryHref={routes.dashboard}
+  />
+</MarketingLayout>

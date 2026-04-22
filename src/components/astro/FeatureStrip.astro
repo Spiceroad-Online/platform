@@ -1,0 +1,25 @@
+---
+type Feature = {
+  title: string;
+  copy: string;
+};
+
+type Props = {
+  items: Feature[];
+};
+
+const { items } = Astro.props;
+---
+
+<section class="section section-tight">
+  <div class="container">
+    <div class="grid-3">
+      {items.map((item) => (
+        <article class="detail-card">
+          <h3>{item.title}</h3>
+          <p>{item.copy}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

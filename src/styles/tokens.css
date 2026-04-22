@@ -1,0 +1,36 @@
+:root {
+  --bg: #060403;
+  --bg-soft: #110905;
+  --surface: rgba(18, 10, 6, 0.78);
+  --surface-2: rgba(28, 16, 10, 0.86);
+  --surface-3: rgba(10, 6, 4, 0.92);
+  --text: #f4e0bd;
+  --muted: #d8b88f;
+  --muted-2: #b89062;
+  --gold: #f3c27b;
+  --gold-2: #d98b33;
+  --gold-3: #8a541f;
+  --title-gold-light: #fff1cf;
+  --title-gold-mid: #efc98e;
+  --title-gold-deep: #c67b2f;
+  --title-gold-shadow: rgba(45, 20, 6, 0.72);
+  --title-gold-glow: rgba(243, 194, 123, 0.22);
+  --title-secondary-light: #d8b38b;
+  --title-secondary-bright: #c8925e;
+  --title-secondary-mid: #9f683d;
+  --title-secondary-deep: #5f3516;
+  --title-secondary-shadow: rgba(45, 24, 10, 0.48);
+  --title-secondary-glow: rgba(201, 136, 74, 0.12);
+  --line: rgba(243, 194, 123, 0.15);
+  --line-2: rgba(243, 194, 123, 0.34);
+  --line-silver: rgba(216, 221, 232, 0.24);
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+  --radius-lg: 26px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --container: 1260px;
+  --bg-fade-top: rgba(6, 4, 3, 0.07);
+  --bg-fade-mid: rgba(6, 4, 3, 0.12);
+  --bg-fade-deep: rgba(6, 4, 3, 0.2);
+  --bg-fade-bottom: rgba(6, 4, 3, 0.32);
+}
