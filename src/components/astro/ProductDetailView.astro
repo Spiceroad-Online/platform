@@ -7,6 +7,8 @@ type Props = {
 };
 
 const { product } = Astro.props;
+const isInstaller = product.slug === 'installer';
+const orderPanelId = isInstaller ? 'installer-order-panel' : undefined;
 ---
 
 <section class="product-layout">
@@ -35,16 +37,93 @@ const { product } = Astro.props;
     </div>
   </article>
 
-  <aside class="side-panel">
-    <div class="side-price"><span class="price-value">{product.priceLabel}</span></div>
-    <p class="side-note">{product.sideNote}</p>
-    <ul class="side-list">
-      {product.sideList.map((item) => <li>{item}</li>)}
-    </ul>
-    <div class="stack-gap-sm">
-      <a class="btn btn-primary" href={routes.dashboard}>{product.primaryActionLabel}</a>
-      <a class="btn btn-ghost" href={routes.dashboard}>{product.secondaryActionLabel}</a>
+  <aside id={orderPanelId} class:list={['side-panel', isInstaller && 'order-panel']} {...(isInstaller ? { 'data-order-panel': '' } : {})}>
+    <div class="order-summary" data-order-summary>
+      <div class="side-price"><span class="price-value">{product.priceLabel}</span></div>
+      <p class="side-note">{product.sideNote}</p>
+      <ul class="side-list">
+        {product.sideList.map((item) => <li>{item}</li>)}
+      </ul>
+      <div class="stack-gap-sm">
+        {isInstaller ? (
+          <button class="btn btn-primary" type="button" data-order-open={orderPanelId}>{product.primaryActionLabel}</button>
+        ) : (
+          <a class="btn btn-primary" href={routes.dashboard}>{product.primaryActionLabel}</a>
+        )}
+        <a class="btn btn-ghost" href={routes.dashboard}>{product.secondaryActionLabel}</a>
+      </div>
     </div>
+
+    {isInstaller && (
+      <form class="order-form" data-order-form hidden>
+        <div class="order-form-head">
+          <div>
+            <span class="order-form-kicker">Installer order</span>
+            <strong data-order-price>$100</strong>
+          </div>
+          <button class="order-close" type="button" data-order-close>Close</button>
+        </div>
+
+        <fieldset class="order-mode-switch">
+          <legend>Delivery mode</legend>
+          <label>
+            <input type="radio" name="installer-order-mode" value="download" checked data-order-mode-option />
+            <span><strong>Download</strong><small>$100</small></span>
+          </label>
+          <label>
+            <input type="radio" name="installer-order-mode" value="bundle" data-order-mode-option />
+            <span><strong>Bundle</strong><small>$150</small></span>
+          </label>
+        </fieldset>
+
+        <div class="order-mode-panel" data-order-download>
+          <label class="order-field" for="installer-download-url">
+            <span>Client archive host URL</span>
+            <input id="installer-download-url" name="downloadUrl" type="url" placeholder="https://example.com/client.zip" required data-download-required />
+          </label>
+          <details class="order-info">
+            <summary aria-label="Download hosting instructions">i</summary>
+            <p>Future guide: host the archive over HTTPS with a direct file URL, stable bandwidth, and no login wall so the installer can retrieve it during setup.</p>
+          </details>
+        </div>
+
+        <div class="order-mode-panel" data-order-bundle hidden>
+          <label class="order-upload-field order-upload-field-large" for="installer-client-archive">
+            <span>Client archive .zip / .7z</span>
+            <small>Required for bundle mode</small>
+            <input id="installer-client-archive" name="clientArchive" type="file" accept=".zip,.7z,application/zip,application/x-7z-compressed" data-bundle-required />
+          </label>
+        </div>
+
+        <div class="order-upload-grid">
+          <label class="order-upload-field" for="installer-tou-file">
+            <span>Terms of Use .txt</span>
+            <small>Required</small>
+            <input id="installer-tou-file" name="termsFile" type="file" accept=".txt,text/plain" required />
+          </label>
+          <label class="order-upload-field" for="installer-license-file">
+            <span>License .txt</span>
+            <small>Required</small>
+            <input id="installer-license-file" name="licenseFile" type="file" accept=".txt,text/plain" required />
+          </label>
+        </div>
+
+        <label class="order-upload-field" for="installer-logo-file">
+          <span>Logo</span>
+          <small>Required</small>
+          <input id="installer-logo-file" name="logoFile" type="file" accept="image/png,image/jpeg,image/webp,.png,.jpg,.jpeg,.webp" required />
+        </label>
+
+        <label class="order-upload-field" for="installer-background-files">
+          <span>Background images</span>
+          <small>Optional, multiple files</small>
+          <input id="installer-background-files" name="backgroundFiles" type="file" accept="image/png,image/jpeg,image/webp,.png,.jpg,.jpeg,.webp" multiple />
+        </label>
+
+        <button class="btn btn-primary" type="submit">Continue order</button>
+        <p class="order-status" data-order-status aria-live="polite"></p>
+      </form>
+    )}
   </aside>
 
   <article class="detail-card product-overview-card">
@@ -59,7 +138,11 @@ const { product } = Astro.props;
       ))}
     </div>
     <div class="hero-actions">
-      <a class="btn btn-primary" href={routes.dashboard}>Buy &amp; Access</a>
+      {isInstaller ? (
+        <button class="btn btn-primary" type="button" data-order-open={orderPanelId}>{product.primaryActionLabel}</button>
+      ) : (
+        <a class="btn btn-primary" href={routes.dashboard}>{product.primaryActionLabel}</a>
+      )}
       <a class="btn btn-ghost" href={routes.products}>Back to Catalog</a>
     </div>
   </article>

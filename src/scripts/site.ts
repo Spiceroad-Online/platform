@@ -115,6 +115,80 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoplay();
     });
 
+    const orderPanels = document.querySelectorAll('[data-order-panel]');
+
+    const setOrderMode = (panel, mode) => {
+        const isBundle = mode === 'bundle';
+        panel.querySelectorAll('[data-order-price]').forEach((target) => {
+            target.textContent = isBundle ? '$150' : '$100';
+        });
+
+        const downloadPanel = panel.querySelector('[data-order-download]');
+        const bundlePanel = panel.querySelector('[data-order-bundle]');
+        if (downloadPanel instanceof HTMLElement) downloadPanel.hidden = isBundle;
+        if (bundlePanel instanceof HTMLElement) bundlePanel.hidden = !isBundle;
+
+        panel.querySelectorAll('[data-download-required]').forEach((field) => {
+            if (field instanceof HTMLInputElement) field.required = !isBundle;
+        });
+        panel.querySelectorAll('[data-bundle-required]').forEach((field) => {
+            if (field instanceof HTMLInputElement) field.required = isBundle;
+        });
+    };
+
+    const getOrderMode = (panel) => {
+        const checkedMode = panel.querySelector('[data-order-mode-option]:checked');
+        return checkedMode instanceof HTMLInputElement ? checkedMode.value : 'download';
+    };
+
+    const openOrderPanel = (panel) => {
+        const summary = panel.querySelector('[data-order-summary]');
+        const form = panel.querySelector('[data-order-form]');
+
+        panel.classList.add('is-order-open');
+        if (summary instanceof HTMLElement) summary.hidden = true;
+        if (form instanceof HTMLElement) form.hidden = false;
+        setOrderMode(panel, getOrderMode(panel));
+        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    const closeOrderPanel = (panel) => {
+        const summary = panel.querySelector('[data-order-summary]');
+        const form = panel.querySelector('[data-order-form]');
+        const status = panel.querySelector('[data-order-status]');
+
+        panel.classList.remove('is-order-open');
+        if (form instanceof HTMLElement) form.hidden = true;
+        if (summary instanceof HTMLElement) summary.hidden = false;
+        if (status) status.textContent = '';
+    };
+
+    orderPanels.forEach((panel) => {
+        panel.querySelectorAll('[data-order-mode-option]').forEach((option) => {
+            option.addEventListener('change', () => {
+                if (option instanceof HTMLInputElement) setOrderMode(panel, option.value);
+            });
+        });
+
+        panel.querySelector('[data-order-close]')?.addEventListener('click', () => closeOrderPanel(panel));
+
+        const form = panel.querySelector('[data-order-form]');
+        form?.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const status = panel.querySelector('[data-order-status]');
+            if (status) status.textContent = 'Order details ready. Checkout wiring can receive these files next.';
+        });
+    });
+
+    document.querySelectorAll('[data-order-open]').forEach((trigger) => {
+        trigger.addEventListener('click', (event) => {
+            event.preventDefault();
+            const targetId = trigger.getAttribute('data-order-open');
+            const panel = targetId ? document.getElementById(targetId) : trigger.closest('[data-order-panel]');
+            if (panel) openOrderPanel(panel);
+        });
+    });
+
     // Sand plumes — occasional mini dust-devils (index only)
     if (
         document.body.hasAttribute('data-particles') &&
