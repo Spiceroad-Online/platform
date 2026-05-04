@@ -124,6 +124,19 @@ export const featuredProducts: FeaturedProduct[] = [
         ctaLabel: 'Order Now',
     },
     {
+        slug: 'server-manager',
+        name: 'Server Manager',
+        description:
+            'Admin control panel for configuration, monitoring, server visibility, and routine operational workflows.',
+        pricePrefix: 'From',
+        priceLabel: '$59',
+        badge: 'Control',
+        href: routes.serverManager,
+        imageSrc: serverManagerScreen.src,
+        imageAlt: 'Server manager overview',
+        ctaLabel: 'View Product',
+    },
+    {
         slug: 'pk2-tools',
         name: 'PK2 Tools Suite',
         description: 'Free gated toolkit area for PK2 editing, extraction, and archive workflow resources.',
