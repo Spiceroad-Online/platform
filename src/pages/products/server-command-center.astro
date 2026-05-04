@@ -1,0 +1,35 @@
+---
+import PageHeader from '../../components/astro/PageHeader.astro';
+import ProductDetailView from '../../components/astro/ProductDetailView.astro';
+import { getProductBySlug } from '../../lib/content';
+import { routes } from '../../lib/routes';
+import MarketingLayout from '../../layouts/MarketingLayout.astro';
+
+const product = getProductBySlug('server-command-center');
+
+if (!product) {
+  throw new Error('Server Command Center product content is missing.');
+}
+---
+
+<MarketingLayout
+  title="Server Command Center"
+  description="Server Command Center interface package for Silkroad private servers, covering dashboard, server, game, and database operations."
+  pathname={Astro.url.pathname}
+>
+  <section class="page-shell">
+    <div class="container">
+      <PageHeader
+        title="Server Command Center"
+        copy="An operator-facing command center for dashboard visibility, server controls, game workflows, and database operations."
+        breadcrumbs={[
+          { label: 'Home', href: routes.home },
+          { label: 'Products', href: routes.products },
+          { label: 'Server Command Center' },
+        ]}
+      />
+
+      <ProductDetailView product={product} />
+    </div>
+  </section>
+</MarketingLayout>

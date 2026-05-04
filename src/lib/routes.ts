@@ -3,7 +3,7 @@ export const routes = {
     products: '/products/',
     launcher: '/products/launcher/',
     installer: '/products/installer/',
-    serverManager: '/products/server-manager/',
+    serverCommandCenter: '/products/server-command-center/',
     freeResources: '/free-resources/',
     guides: '/guides/',
     dashboard: '/dashboard/',

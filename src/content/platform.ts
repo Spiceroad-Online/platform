@@ -6,8 +6,11 @@ import installerWelcomePage from '../assets/installer-welcome-page.png';
 import launcherHomePage from '../assets/launcher-home-page.png';
 import launcherSettingsPage from '../assets/launcher-settings-page.png';
 import launcherUpdatePage from '../assets/launcher-update-page.png';
-import serverManagerScreen from '../assets/server-manager-screen.png';
-import serverManagerScreen2 from '../assets/server-manager-screen2.png';
+import sccDashboardPage from '../assets/scc-dashboard-page.png';
+import sccDatabasePage from '../assets/scc-database-page.png';
+import sccGamePage from '../assets/scc-game-page.png';
+import sccPluginsOverview from '../assets/scc-plugins-overview.png';
+import sccServerPage from '../assets/scc-server-page.png';
 import { routes } from '../lib/routes';
 
 export type ActionLink = {
@@ -124,16 +127,15 @@ export const featuredProducts: FeaturedProduct[] = [
         ctaLabel: 'Order Now',
     },
     {
-        slug: 'server-manager',
-        name: 'Server Manager',
-        description:
-            'Admin control panel for configuration, monitoring, server visibility, and routine operational workflows.',
+        slug: 'server-command-center',
+        name: 'Server Command Center',
+        description: 'Command center dashboard for server, game, and database operations in one admin surface.',
         pricePrefix: 'From',
         priceLabel: '$59',
         badge: 'Control',
-        href: routes.serverManager,
-        imageSrc: serverManagerScreen.src,
-        imageAlt: 'Server manager overview',
+        href: routes.serverCommandCenter,
+        imageSrc: sccDashboardPage.src,
+        imageAlt: 'Server Command Center dashboard screenshot',
         ctaLabel: 'View Product',
     },
     {
@@ -333,45 +335,48 @@ export const productCatalog: ProductDetail[] = [
         secondaryActionLabel: 'Add to Wishlist',
     },
     {
-        slug: 'server-manager',
-        name: 'Server Manager',
-        description:
-            'Admin control panel for configuration, monitoring, server visibility, and routine operational workflows.',
+        slug: 'server-command-center',
+        name: 'Server Command Center',
+        description: 'Command center dashboard for server, game, and database operations in one admin surface.',
         priceLabel: 'From $59',
         badge: 'Control',
-        href: routes.serverManager,
-        imageSrc: serverManagerScreen.src,
-        imageAlt: 'Server manager overview',
+        href: routes.serverCommandCenter,
+        imageSrc: sccDashboardPage.src,
+        imageAlt: 'Server Command Center dashboard screenshot',
         ctaLabel: 'View Product',
-        heroBadges: ['Control Panel', 'Operations UI'],
+        heroBadges: ['Command Center', 'Operations UI'],
         sideNote:
-            'A clean operations layer for teams that need visibility across configs, services, and server health from one interface.',
+            'A focused control surface for teams that need server, game, and database operations visible from one dashboard.',
         sideList: [
+            'Dashboard, server, game, and database views',
             'Admin-focused operational UI',
-            'Fits shard, config, and server tooling workflows',
             'Expandable with environment-specific modules',
             'Pairs with launcher and installer product family',
         ],
         gallery: [
-            { src: serverManagerScreen.src, alt: 'Server manager overview' },
-            { src: serverManagerScreen2.src, alt: 'Server manager lower panel detail' },
+            { src: sccDashboardPage.src, alt: 'Server Command Center dashboard screenshot' },
+            { src: sccServerPage.src, alt: 'Server Command Center server page screenshot' },
+            { src: sccGamePage.src, alt: 'Server Command Center game page screenshot' },
+            { src: sccDatabasePage.src, alt: 'Server Command Center database page screenshot' },
+            { src: sccPluginsOverview.src, alt: 'Server Command Center plugins overview screenshot' },
         ],
         subtitle:
-            'A management dashboard for operating Silkroad infrastructure with one coherent interface for configuration, shard and server visibility, service navigation, and admin-side tooling.',
+            'A command center dashboard for operating Silkroad infrastructure through one coherent interface for server status, game configuration, database workflows, and routine admin-side tooling.',
         stats: [
-            { value: '8+ panels', label: 'Configs, shards, agents, tools' },
-            { value: 'Status aware', label: 'Detected files and server checks' },
-            { value: 'Admin focused', label: 'Built for operators, not players' },
+            { value: '4 views', label: 'Dashboard, server, game, database' },
+            { value: 'Ops focused', label: 'Built for operators, not players' },
+            { value: 'Brand ready', label: 'Adapt labels, links, and sections' },
         ],
         included: [
-            'Configuration overview dashboard with file detection and service summary.',
-            'Navigation for core servers, agent servers, game servers, and utility tools.',
-            'Editable sections for configs, SQL install/backup, paths, and operational shortcuts.',
+            'Dashboard overview for server visibility, status, and operational summaries.',
+            'Server page for service-oriented controls and infrastructure management workflows.',
+            'Game page for gameplay-facing configuration, shortcuts, and maintenance tasks.',
+            'Database page for SQL-oriented operations, backups, and data workflow access points.',
             'Structured admin UI that can be branded as part of your broader server toolkit.',
         ],
         goodFit: [
             'Owners running a serious Silkroad deployment with multiple server components.',
-            'Teams that want one admin interface instead of scattered utility scripts and notes.',
+            'Teams that want one command center instead of scattered utility scripts and notes.',
             'Projects selling premium infrastructure tooling as part of a managed server stack.',
             'Operators who want a presentable panel for repeat maintenance and oversight tasks.',
         ],
@@ -381,12 +386,12 @@ export const productCatalog: ProductDetail[] = [
             {
                 tier: 'Starter',
                 price: '$59',
-                includes: 'Core interface shell and standard server management sections',
+                includes: 'Dashboard, server, game, and database command center screens',
             },
             {
                 tier: 'Expanded',
                 price: '$119',
-                includes: 'Starter + extra admin tabs, branded labels, and custom quick actions',
+                includes: 'Starter + branded labels, extra admin sections, and custom quick actions',
             },
             {
                 tier: 'Custom',
@@ -397,15 +402,15 @@ export const productCatalog: ProductDetail[] = [
         faqs: [
             {
                 question: 'Is this player-facing?',
-                answer: 'No. This product is framed as an operator/admin tool for server maintenance and monitoring.',
+                answer: 'No. Server Command Center is framed as an operator/admin tool for server maintenance and monitoring.',
             },
             {
                 question: 'Can sections be customized?',
-                answer: 'Yes. Tabs, labels, quick actions, and environment-specific modules can be tailored.',
+                answer: 'Yes. Labels, quick actions, views, and environment-specific modules can be tailored.',
             },
             {
                 question: 'Does it pair with the launcher and installer?',
-                answer: 'Yes. The three product pages form one consistent family: player-facing launcher, distribution installer, and operator-facing manager.',
+                answer: 'Yes. The product pages form one consistent family: player-facing launcher, distribution installer, and operator-facing command center.',
             },
         ],
         primaryActionLabel: 'Buy Now',

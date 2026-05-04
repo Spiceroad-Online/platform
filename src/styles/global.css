@@ -610,7 +610,8 @@ a {
 }
 
 .product-card--installer .card-art img,
-.product-card--launcher .card-art img {
+.product-card--launcher .card-art img,
+.product-card--server-command-center .card-art img {
     object-fit: contain;
     background: #120a05;
 }
@@ -1401,7 +1402,8 @@ body:not([data-particles]) .page-shell {
 }
 
 .product-media-card--installer .hero-panel-media .media-slide img,
-.product-media-card--launcher .hero-panel-media .media-slide img {
+.product-media-card--launcher .hero-panel-media .media-slide img,
+.product-media-card--server-command-center .hero-panel-media .media-slide img {
     object-fit: contain;
 }
 
