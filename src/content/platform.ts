@@ -1,6 +1,8 @@
-import installerScreen from '../assets/installer-screen.png';
-import installerScreen2 from '../assets/installer-screen2.png';
-import installerScreen3 from '../assets/installer-screen3.png';
+import installerEulaPage from '../assets/installer-eula-page.png';
+import installerFinishPage from '../assets/installer-finish-page.png';
+import installerInstallPage from '../assets/installer-install-page.png';
+import installerLocationPage from '../assets/installer-location-page.png';
+import installerWelcomePage from '../assets/installer-welcome-page.png';
 import launcherScreen from '../assets/launcher-screen.png';
 import launcherScreen2 from '../assets/launcher-screen2.png';
 import serverManagerScreen from '../assets/server-manager-screen.png';
@@ -102,8 +104,8 @@ export const featuredProducts: FeaturedProduct[] = [
         priceLabel: '$79',
         badge: 'SRO Core',
         href: routes.installer,
-        imageSrc: installerScreen.src,
-        imageAlt: 'Game installer',
+        imageSrc: installerInstallPage.src,
+        imageAlt: 'Installer install page screenshot',
         ctaLabel: 'Order Now',
     },
     {
@@ -219,8 +221,8 @@ export const productCatalog: ProductDetail[] = [
         priceLabel: '$79',
         badge: 'Upload',
         href: routes.installer,
-        imageSrc: installerScreen.src,
-        imageAlt: 'Installer destination screenshot',
+        imageSrc: installerInstallPage.src,
+        imageAlt: 'Installer install page screenshot',
         ctaLabel: 'View Product',
         heroBadges: ['Upload-Based Service', 'Custom Delivery'],
         sideNote:
@@ -232,9 +234,11 @@ export const productCatalog: ProductDetail[] = [
             'Upgradeable to custom branding',
         ],
         gallery: [
-            { src: installerScreen.src, alt: 'Installer destination screenshot' },
-            { src: installerScreen2.src, alt: 'Installer progress screenshot' },
-            { src: installerScreen3.src, alt: 'Installer agreement screenshot' },
+            { src: installerInstallPage.src, alt: 'Installer install page screenshot' },
+            { src: installerWelcomePage.src, alt: 'Installer welcome page screenshot' },
+            { src: installerLocationPage.src, alt: 'Installer location page screenshot' },
+            { src: installerEulaPage.src, alt: 'Installer EULA page screenshot' },
+            { src: installerFinishPage.src, alt: 'Installer finish page screenshot' },
         ],
         subtitle:
             'A branded installer service for servers that want a polished client setup experience, from destination selection to progress flow and legal acceptance screens.',

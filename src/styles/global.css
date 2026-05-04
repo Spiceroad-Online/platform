@@ -607,6 +607,11 @@ a {
     z-index: 0;
 }
 
+.product-card--installer .card-art img {
+    object-fit: contain;
+    background: #120a05;
+}
+
 .card-art-icon svg {
     position: relative;
     z-index: 0;
@@ -1188,6 +1193,10 @@ body:not([data-particles]) .page-shell {
     object-fit: cover;
     object-position: center center;
     margin: 0;
+}
+
+.product-media-card--installer .hero-panel-media .media-slide img {
+    object-fit: contain;
 }
 
 .hero-panel-media .media-carousel-controls {

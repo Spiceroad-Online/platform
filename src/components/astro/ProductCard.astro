@@ -9,7 +9,7 @@ const { product } = Astro.props;
 const renderArtifactIcon = product.artwork === 'artifact';
 ---
 
-<article class="card product-card">
+<article class:list={['card', 'product-card', product.slug && `product-card--${product.slug}`]}>
   <div class:list={['card-art', { 'card-art-icon': !product.imageSrc, 'card-art-icon--artifact': renderArtifactIcon }]}>
     {product.imageSrc ? (
       <img src={product.imageSrc} alt={product.imageAlt ?? product.name} />
