@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const getOrderMode = (panel) => {
         const checkedMode = panel.querySelector('[data-order-mode-option]:checked');
-        return checkedMode instanceof HTMLInputElement ? checkedMode.value : 'download';
+        return checkedMode instanceof HTMLInputElement ? checkedMode.value : null;
     };
 
     const openOrderPanel = (panel) => {
@@ -148,7 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
         panel.classList.add('is-order-open');
         if (summary instanceof HTMLElement) summary.hidden = true;
         if (form instanceof HTMLElement) form.hidden = false;
-        setOrderMode(panel, getOrderMode(panel));
+        const orderMode = getOrderMode(panel);
+        if (orderMode) setOrderMode(panel, orderMode);
         panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 

@@ -3,8 +3,9 @@ import installerFinishPage from '../assets/installer-finish-page.png';
 import installerInstallPage from '../assets/installer-install-page.png';
 import installerLocationPage from '../assets/installer-location-page.png';
 import installerWelcomePage from '../assets/installer-welcome-page.png';
-import launcherScreen from '../assets/launcher-screen.png';
-import launcherScreen2 from '../assets/launcher-screen2.png';
+import launcherHomePage from '../assets/launcher-home-page.png';
+import launcherSettingsPage from '../assets/launcher-settings-page.png';
+import launcherUpdatePage from '../assets/launcher-update-page.png';
 import serverManagerScreen from '../assets/server-manager-screen.png';
 import serverManagerScreen2 from '../assets/server-manager-screen2.png';
 import { routes } from '../lib/routes';
@@ -113,14 +114,14 @@ export const featuredProducts: FeaturedProduct[] = [
         slug: 'launcher',
         name: 'Game Launcher',
         description:
-            'Fully customizable game launcher package inspired by in-game launcher aesthetics and modern product UX.',
+            'Order a branded five-screen launcher package with homepage, settings, update, trailer, and guide views.',
         pricePrefix: 'From',
         priceLabel: '$149',
         badge: 'Source',
         href: routes.launcher,
-        imageSrc: launcherScreen.src,
-        imageAlt: 'Game launcher',
-        ctaLabel: 'Get Now',
+        imageSrc: launcherHomePage.src,
+        imageAlt: 'Launcher homepage screenshot',
+        ctaLabel: 'Order Now',
     },
     {
         slug: 'pk2-tools',
@@ -139,38 +140,40 @@ export const productCatalog: ProductDetail[] = [
     {
         slug: 'launcher',
         name: 'Game Launcher',
-        description: 'Branded launcher package with home, settings, progress, and premium player-entry screens.',
+        description: 'Branded launcher package with homepage, settings, update, trailer, and guide screens.',
         priceLabel: 'From $149',
         badge: 'Flagship',
         href: routes.launcher,
-        imageSrc: launcherScreen.src,
-        imageAlt: 'Launcher main screenshot',
+        imageSrc: launcherHomePage.src,
+        imageAlt: 'Launcher homepage screenshot',
         ctaLabel: 'View Product',
-        heroBadges: ['Flagship Product', 'Source Included'],
+        heroBadges: ['5 screen flow', 'Custom branding'],
         sideNote:
-            'Premium game launcher source package with visuals and structure tailored for Silkroad private-server branding.',
+            'Start a launcher order with your logo and optional background artwork for a branded five-screen flow.',
         sideList: [
-            'Instant dashboard delivery',
-            'Commercial presentation-ready',
-            'Pairs well with custom installer service',
-            'Expandable with bespoke work',
+            'Homepage, settings, update, trailer, and guide screens',
+            'Logo required for branding',
+            'Optional background artwork',
+            'Pairs with the installer order flow',
         ],
         gallery: [
-            { src: launcherScreen.src, alt: 'Launcher main screenshot' },
-            { src: launcherScreen2.src, alt: 'Launcher settings screenshot' },
+            { src: launcherHomePage.src, alt: 'Launcher homepage screenshot' },
+            { src: launcherSettingsPage.src, alt: 'Launcher settings screenshot' },
+            { src: launcherUpdatePage.src, alt: 'Launcher update screenshot' },
         ],
         subtitle:
-            'A premium launcher package built around the in-game Silkroad look, with polished screens for patching, settings, promotion, and entry flow. This product is designed for servers that want a branded launcher experience that feels production-ready from first boot.',
+            'A premium launcher package built around the in-game Silkroad look, with polished homepage, settings, update, trailer, and guide screens. This product is designed for servers that want a branded launcher experience that feels production-ready from first boot.',
         stats: [
-            { value: '4 screens', label: 'Landing, settings, progress, legal' },
-            { value: 'Brand ready', label: 'Replace logo, links, artwork' },
-            { value: 'Delivery', label: 'Source package + assets' },
+            { value: '5 screens', label: 'Home, settings, update, trailer, guide' },
+            { value: 'Logo required', label: 'Used across launcher branding' },
+            { value: 'Artwork ready', label: 'Optional background image set' },
         ],
         included: [
-            'Main launcher shell with navigation, patch status, and branded home panel.',
+            'Homepage launcher shell with navigation, patch status, notices, and branded entry panel.',
             'Settings screen with launcher-side controls for language, resolution, graphics, and audio.',
-            'Installer/progress-ready visual language so the full product family stays cohesive.',
-            'Editable artwork, logo placement, links, and footer/legal sections.',
+            'Update screen with a clear patching state and progress-focused presentation.',
+            'Trailer and guide screens planned for richer media and onboarding content.',
+            'Editable logo placement, background artwork, links, notices, and footer copy.',
         ],
         goodFit: [
             'Servers that want a premium first impression before the client even launches.',
@@ -178,29 +181,35 @@ export const productCatalog: ProductDetail[] = [
             'Teams that want a presentable launcher base they can iterate on over time.',
             'Storefronts selling branded launcher themes or premium client distribution packages.',
         ],
-        comparisonTitle: 'Package comparison',
-        comparisonHeaders: ['Tier', 'Price', 'Includes'],
+        comparisonTitle: 'Order requirements',
+        comparisonHeaders: ['Item', 'Required', 'Notes'],
         comparisonRows: [
             {
-                tier: 'Starter',
-                price: '$149',
-                includes: 'Main launcher source, settings screen, and asset placeholders',
+                tier: 'Logo',
+                price: 'Yes',
+                includes:
+                    'Required brand mark used across the launcher homepage, settings, update, trailer, and guide screens',
             },
             {
-                tier: 'Branded',
-                price: '$249',
-                includes: 'Starter + logo/colors/content setup and polished screen pack',
+                tier: 'Background images',
+                price: 'Optional',
+                includes: 'Custom artwork for the launcher homepage, settings, update, trailer, and guide presentation',
             },
             {
-                tier: 'Custom',
-                price: 'Quote',
-                includes: 'Custom flows, extra screens, service wiring, and store integration',
+                tier: 'Server links and copy',
+                price: 'Optional',
+                includes: 'Useful for notices, website links, support links, and footer text',
+            },
+            {
+                tier: 'Installer pairing',
+                price: 'Optional',
+                includes: 'Useful when pairing the launcher with the branded installer package',
             },
         ],
         faqs: [
             {
-                question: 'Does this include the settings screen too?',
-                answer: 'Yes. The package is presented as a launcher family, not just a single landing panel.',
+                question: 'Does this include settings, update, trailer, and guide screens too?',
+                answer: 'Yes. The package is presented as a five-screen launcher family: homepage, settings, update, trailer, and guide.',
             },
             {
                 question: 'Can I white-label it?',
@@ -211,7 +220,7 @@ export const productCatalog: ProductDetail[] = [
                 answer: 'Yes. The installer page and launcher page are designed to feel like one product ecosystem.',
             },
         ],
-        primaryActionLabel: 'Buy Now',
+        primaryActionLabel: 'Start order',
         secondaryActionLabel: 'Add to Wishlist',
     },
     {

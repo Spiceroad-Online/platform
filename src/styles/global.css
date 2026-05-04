@@ -609,7 +609,8 @@ a {
     z-index: 0;
 }
 
-.product-card--installer .card-art img {
+.product-card--installer .card-art img,
+.product-card--launcher .card-art img {
     object-fit: contain;
     background: #120a05;
 }
@@ -1399,7 +1400,8 @@ body:not([data-particles]) .page-shell {
     margin: 0;
 }
 
-.product-media-card--installer .hero-panel-media .media-slide img {
+.product-media-card--installer .hero-panel-media .media-slide img,
+.product-media-card--launcher .hero-panel-media .media-slide img {
     object-fit: contain;
 }
 

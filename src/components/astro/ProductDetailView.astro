@@ -8,7 +8,9 @@ type Props = {
 
 const { product } = Astro.props;
 const isInstaller = product.slug === 'installer';
-const orderPanelId = isInstaller ? 'installer-order-panel' : undefined;
+const isLauncher = product.slug === 'launcher';
+const hasOrderForm = isInstaller || isLauncher;
+const orderPanelId = hasOrderForm ? `${product.slug}-order-panel` : undefined;
 ---
 
 <section class="product-layout">
@@ -37,7 +39,7 @@ const orderPanelId = isInstaller ? 'installer-order-panel' : undefined;
     </div>
   </article>
 
-  <aside id={orderPanelId} class:list={['side-panel', isInstaller && 'order-panel']} {...(isInstaller ? { 'data-order-panel': '' } : {})}>
+  <aside id={orderPanelId} class:list={['side-panel', hasOrderForm && 'order-panel']} {...(hasOrderForm ? { 'data-order-panel': '' } : {})}>
     <div class="order-summary" data-order-summary>
       <div class="side-price"><span class="price-value">{product.priceLabel}</span></div>
       <p class="side-note">{product.sideNote}</p>
@@ -45,7 +47,7 @@ const orderPanelId = isInstaller ? 'installer-order-panel' : undefined;
         {product.sideList.map((item) => <li>{item}</li>)}
       </ul>
       <div class="stack-gap-sm">
-        {isInstaller ? (
+        {hasOrderForm ? (
           <button class="btn btn-primary" type="button" data-order-open={orderPanelId}>{product.primaryActionLabel}</button>
         ) : (
           <a class="btn btn-primary" href={routes.dashboard}>{product.primaryActionLabel}</a>
@@ -124,6 +126,33 @@ const orderPanelId = isInstaller ? 'installer-order-panel' : undefined;
         <p class="order-status" data-order-status aria-live="polite"></p>
       </form>
     )}
+
+    {isLauncher && (
+      <form class="order-form" data-order-form hidden>
+        <div class="order-form-head">
+          <div>
+            <span class="order-form-kicker">Launcher order</span>
+            <strong data-order-price>$149</strong>
+          </div>
+          <button class="order-close" type="button" data-order-close>Close</button>
+        </div>
+
+        <label class="order-upload-field" for="launcher-logo-file">
+          <span>Logo</span>
+          <small>Required for launcher branding</small>
+          <input id="launcher-logo-file" name="logoFile" type="file" accept="image/png,image/jpeg,image/webp,.png,.jpg,.jpeg,.webp" required />
+        </label>
+
+        <label class="order-upload-field" for="launcher-background-files">
+          <span>Background images</span>
+          <small>Optional, multiple files</small>
+          <input id="launcher-background-files" name="backgroundFiles" type="file" accept="image/png,image/jpeg,image/webp,.png,.jpg,.jpeg,.webp" multiple />
+        </label>
+
+        <button class="btn btn-primary" type="submit">Continue order</button>
+        <p class="order-status" data-order-status aria-live="polite"></p>
+      </form>
+    )}
   </aside>
 
   <article class="detail-card product-overview-card">
@@ -138,7 +167,7 @@ const orderPanelId = isInstaller ? 'installer-order-panel' : undefined;
       ))}
     </div>
     <div class="hero-actions">
-      {isInstaller ? (
+      {hasOrderForm ? (
         <button class="btn btn-primary" type="button" data-order-open={orderPanelId}>{product.primaryActionLabel}</button>
       ) : (
         <a class="btn btn-primary" href={routes.dashboard}>{product.primaryActionLabel}</a>
