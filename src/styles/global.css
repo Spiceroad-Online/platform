@@ -579,9 +579,10 @@ a {
     justify-content: center;
     padding: 24px 24px 28px;
     background:
-        radial-gradient(circle at 50% 32%, rgba(255, 221, 164, 0.16), transparent 18%),
-        radial-gradient(circle at 52% 52%, rgba(243, 162, 66, 0.16), transparent 28%),
-        linear-gradient(180deg, #1b1008, #0d0704);
+        radial-gradient(circle at 50% 58%, rgba(255, 155, 56, 0.28), transparent 23%),
+        radial-gradient(circle at 50% 34%, rgba(255, 221, 164, 0.16), transparent 25%),
+        radial-gradient(circle at 60% 14%, rgba(243, 194, 123, 0.1), transparent 20%),
+        linear-gradient(180deg, #211006 0%, #130804 46%, #060302 100%);
 }
 
 .card-art-icon svg {
@@ -591,7 +592,7 @@ a {
 }
 
 .card-art-icon--artifact svg {
-    width: min(82%, 252px);
+    width: min(78%, 232px);
 }
 
 .card-art img {
