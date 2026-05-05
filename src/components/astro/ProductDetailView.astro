@@ -14,7 +14,7 @@ const orderPanelId = hasOrderForm ? `${product.slug}-order-panel` : undefined;
 ---
 
 <section class="product-layout">
-  <article class:list={['hero-panel', 'product-media-card', product.slug && `product-media-card--${product.slug}`]}>
+  <article class:list={['hero-panel', 'product-media-card', 'action-card', product.slug && `product-media-card--${product.slug}`]}>
     <div class="hero-panel-media">
       <div class="media-carousel hero-media-carousel" data-carousel data-autoplay="4800">
         <div class="media-carousel-track" data-carousel-track>
@@ -39,7 +39,7 @@ const orderPanelId = hasOrderForm ? `${product.slug}-order-panel` : undefined;
     </div>
   </article>
 
-  <aside id={orderPanelId} class:list={['side-panel', hasOrderForm && 'order-panel']} {...(hasOrderForm ? { 'data-order-panel': '' } : {})}>
+  <aside id={orderPanelId} class:list={['side-panel', 'action-card', hasOrderForm && 'order-panel']} {...(hasOrderForm ? { 'data-order-panel': '' } : {})}>
     <div class="order-summary" data-order-summary>
       <div class="side-price"><span class="price-value">{product.priceLabel}</span></div>
       <p class="side-note">{product.sideNote}</p>
@@ -155,7 +155,7 @@ const orderPanelId = hasOrderForm ? `${product.slug}-order-panel` : undefined;
     )}
   </aside>
 
-  <article class="detail-card product-overview-card">
+  <article class="detail-card product-overview-card action-card">
     <div class="product-head">
       {product.heroBadges.map((badge) => <span class="badge">{badge}</span>)}
     </div>

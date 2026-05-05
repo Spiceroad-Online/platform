@@ -30,7 +30,8 @@ export type FeaturedProduct = {
     imageAlt?: string;
     monogram?: string;
     artwork?: 'artifact' | 'monogram';
-    ctaLabel?: string;
+    cardPricePrefix?: string;
+    cardBadge?: string;
 };
 
 export type ProductStat = {
@@ -67,22 +68,24 @@ export type ProductDetail = FeaturedProduct & {
 };
 
 export type GuideSummary = {
+    slug: string;
     title: string;
     description: string;
     meta: string;
+    href: string;
 };
 
 export type ResourceSummary = {
     title: string;
     description: string;
     meta: string;
-    ctaLabel: string;
     href: string;
 };
 
 export type DashboardMetric = {
     value: string;
     label: string;
+    href: string;
 };
 
 export type DashboardOrder = {
@@ -111,7 +114,8 @@ export const featuredProducts: FeaturedProduct[] = [
         href: routes.installer,
         imageSrc: installerInstallPage.src,
         imageAlt: 'Installer install page screenshot',
-        ctaLabel: 'Order Now',
+        cardPricePrefix: 'From',
+        cardBadge: 'Sale',
     },
     {
         slug: 'launcher',
@@ -124,7 +128,6 @@ export const featuredProducts: FeaturedProduct[] = [
         href: routes.launcher,
         imageSrc: launcherHomePage.src,
         imageAlt: 'Launcher homepage screenshot',
-        ctaLabel: 'Order Now',
     },
     {
         slug: 'server-command-center',
@@ -136,7 +139,7 @@ export const featuredProducts: FeaturedProduct[] = [
         href: routes.serverCommandCenter,
         imageSrc: sccDashboardPage.src,
         imageAlt: 'Server Command Center dashboard screenshot',
-        ctaLabel: 'View Product',
+        cardBadge: 'Sale',
     },
     {
         slug: 'pk2-tools',
@@ -147,7 +150,6 @@ export const featuredProducts: FeaturedProduct[] = [
         href: routes.freeResources,
         artwork: 'artifact',
         monogram: 'PK2',
-        ctaLabel: 'Login to Download',
     },
 ];
 
@@ -161,7 +163,6 @@ export const productCatalog: ProductDetail[] = [
         href: routes.launcher,
         imageSrc: launcherHomePage.src,
         imageAlt: 'Launcher homepage screenshot',
-        ctaLabel: 'View Product',
         heroBadges: ['5 screen flow', 'Custom branding'],
         sideNote:
             'Start a launcher order with your logo and optional background artwork for a branded five-screen flow.',
@@ -248,7 +249,8 @@ export const productCatalog: ProductDetail[] = [
         href: routes.installer,
         imageSrc: installerInstallPage.src,
         imageAlt: 'Installer install page screenshot',
-        ctaLabel: 'View Product',
+        cardPricePrefix: 'From',
+        cardBadge: 'Sale',
         heroBadges: ['Bundle available', 'Custom branding'],
         sideNote:
             'Choose download mode for hosted archives or bundle mode to package your client directly into the installer.',
@@ -343,7 +345,7 @@ export const productCatalog: ProductDetail[] = [
         href: routes.serverCommandCenter,
         imageSrc: sccDashboardPage.src,
         imageAlt: 'Server Command Center dashboard screenshot',
-        ctaLabel: 'View Product',
+        cardBadge: 'Sale',
         heroBadges: ['Command Center', 'Operations UI'],
         sideNote:
             'A focused control surface for teams that need server, game, and database operations visible from one dashboard.',
@@ -420,22 +422,28 @@ export const productCatalog: ProductDetail[] = [
 
 export const guides: GuideSummary[] = [
     {
+        slug: 'gated-free-download-library',
         meta: 'Guide',
         title: 'How to structure a gated free-download library',
         description:
             'Keep public landing pages indexable, but enforce login only when the user tries to claim or download the resource.',
+        href: `${routes.guides}#gated-free-download-library`,
     },
     {
+        slug: 'upload-based-products',
         meta: 'Guide',
         title: 'When a product should be upload-based',
         description:
             'Some items are services, not instant downloads. That changes the UX, order status, and dashboard requirements.',
+        href: `${routes.guides}#upload-based-products`,
     },
     {
+        slug: 'launcher-visual-commerce-assets',
         meta: 'Guide',
         title: 'Using launcher visuals as commerce assets',
         description:
             'How to transform in-game or launcher-style visual identity into a polished storefront without losing atmosphere.',
+        href: `${routes.guides}#launcher-visual-commerce-assets`,
     },
 ];
 
@@ -444,21 +452,18 @@ export const freeResources: ResourceSummary[] = [
         meta: 'Free • Login required',
         title: 'PK2 Starter Library',
         description: 'Introductory archive workflow resources, helper files, and starter notes for tooling pipelines.',
-        ctaLabel: 'Login to Claim',
         href: routes.dashboard,
     },
     {
         meta: 'Free • Login required',
         title: 'Launcher Copy Pack',
         description: 'Placeholder text and structure examples for notices, links, and launcher presentation blocks.',
-        ctaLabel: 'Login to Claim',
         href: routes.dashboard,
     },
     {
         meta: 'Free • Login required',
         title: 'Branding Checklist',
         description: 'A practical checklist for server naming, homepage composition, CTA flow, and delivery readiness.',
-        ctaLabel: 'Login to Claim',
         href: routes.dashboard,
     },
 ];
@@ -484,9 +489,9 @@ export const platformHighlights = [
 export const dashboardSections = ['Overview', 'My Orders', 'Downloads', 'Uploads', 'Free Library', 'Account'];
 
 export const dashboardMetrics: DashboardMetric[] = [
-    { value: '4', label: 'Active orders' },
-    { value: '12', label: 'Available downloads' },
-    { value: '3', label: 'Pending uploads' },
+    { value: '4', label: 'Active orders', href: '#dashboard-orders' },
+    { value: '12', label: 'Available downloads', href: '#dashboard-downloads' },
+    { value: '3', label: 'Pending uploads', href: '#dashboard-uploads' },
 ];
 
 export const dashboardOrders: DashboardOrder[] = [

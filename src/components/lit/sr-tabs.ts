@@ -22,20 +22,63 @@ class SrTabs extends LitElement {
         .tabs {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            align-items: center;
+            gap: 28px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(243, 194, 123, 0.1);
         }
 
         button {
-            border: 1px solid rgba(243, 194, 123, 0.22);
-            background: rgba(18, 10, 6, 0.8);
-            color: var(--text, #f4e0bd);
-            padding: 0.65rem 0.9rem;
+            appearance: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 32px;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: #f0d4ad;
+            font: inherit;
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0;
             cursor: pointer;
+            position: relative;
+            transition: color 0.18s ease;
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -13px;
+            height: 1px;
+            pointer-events: none;
+            background: linear-gradient(90deg, transparent, rgba(243, 194, 123, 0.95), transparent);
+            opacity: 0;
+            transform: scaleX(0.4);
+            transition: 0.18s ease;
+        }
+
+        button:hover {
+            color: var(--text, #f4e0bd);
+        }
+
+        button:focus-visible {
+            outline: 1px solid rgba(243, 194, 123, 0.58);
+            outline-offset: 7px;
         }
 
         button[data-active='true'] {
-            border-color: rgba(243, 194, 123, 0.65);
-            background: rgba(58, 33, 14, 0.92);
+            color: var(--text, #f4e0bd);
+            font-weight: 600;
+        }
+
+        button:hover::after,
+        button[data-active='true']::after {
+            opacity: 1;
+            transform: scaleX(1);
         }
     `;
 
@@ -58,12 +101,15 @@ class SrTabs extends LitElement {
         }
 
         return html`
-            <div class="tabs">
+            <div class="tabs" role="tablist" aria-label="Dashboard sections">
                 ${tabs.map(
                     (tab) =>
                         html`<button
                             type="button"
+                            role="tab"
+                            aria-selected=${String(tab.key === this.active)}
                             data-active=${String(tab.key === this.active)}
+                            tabindex=${tab.key === this.active ? '0' : '-1'}
                             @click=${() => this.onSelect(tab.key)}
                         >
                             ${tab.label}

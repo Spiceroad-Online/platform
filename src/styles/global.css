@@ -374,15 +374,15 @@ a {
     --card-hover-glow-a: rgba(243, 194, 123, 0.04);
     --card-hover-glow-b: rgba(255, 214, 140, 0.03);
     transition:
+        transform 0.18s ease,
         border-color 0.22s ease,
         box-shadow 0.22s ease;
 }
 
-.product-card,
+.link-card,
 .hero-panel,
 .side-panel,
-.detail-card,
-.dashboard-panel {
+.detail-card {
     --card-hover-corner-opacity-1: 0.2;
     --card-hover-corner-opacity-2: 0.1;
     --card-hover-corner-opacity-3: 0.035;
@@ -403,8 +403,20 @@ a {
 
 .side-panel {
     transition:
+        transform 0.18s ease,
         border-color 0.22s ease,
         box-shadow 0.22s ease;
+}
+
+.link-card {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.link-card:focus-visible {
+    outline: 1px solid rgba(243, 194, 123, 0.62);
+    outline-offset: 5px;
 }
 
 .product-card::after,
@@ -413,7 +425,6 @@ a {
 .resource-card::after,
 .detail-card::after,
 .faq-item::after,
-.dashboard-panel::after,
 .hero-panel::after,
 .side-panel::after,
 .stat-box::after {
@@ -469,6 +480,7 @@ a {
 
 .product-card .product-body .price-row {
     margin-top: auto;
+    margin-bottom: 0;
 }
 .product-card::before {
     content: '';
@@ -480,32 +492,25 @@ a {
     background: linear-gradient(90deg, transparent, rgba(243, 194, 123, 0.95), transparent);
 }
 
-.product-card:hover,
-.feature-box:hover,
-.guide-card:hover,
-.resource-card:hover,
-.detail-card:hover,
-.faq-item:hover,
-.dashboard-panel:hover,
-.hero-panel:hover,
-.side-panel:hover,
-.stat-box:hover {
+.link-card:hover,
+.link-card:focus-visible {
+    transform: translateY(-3px);
     border-color: rgba(243, 194, 123, 0.14);
     box-shadow:
-        0 24px 70px rgba(0, 0, 0, 0.5),
-        0 0 7px rgba(243, 194, 123, 0.035);
+        0 34px 86px rgba(0, 0, 0, 0.58),
+            0 12px 32px rgba(0, 0, 0, 0.28),
+            0 0 10px rgba(243, 194, 123, 0.055);
 }
 
-.product-card:hover::after,
-.feature-box:hover::after,
-.guide-card:hover::after,
-.resource-card:hover::after,
-.detail-card:hover::after,
-.faq-item:hover::after,
-.dashboard-panel:hover::after,
-.hero-panel:hover::after,
-.side-panel:hover::after,
-.stat-box:hover::after {
+.action-card:hover,
+.action-card:focus-within {
+    border-color: rgba(243, 194, 123, 0.18);
+}
+
+.link-card:hover::after,
+.link-card:focus-visible::after,
+.action-card:hover::after,
+.action-card:focus-within::after {
     opacity: var(--card-hover-overlay-opacity);
     border-color: var(--card-hover-border-color);
     box-shadow:
@@ -514,7 +519,8 @@ a {
         -5px -5px 14px var(--card-hover-glow-b);
 }
 
-.product-card:hover::before {
+.product-card:hover::before,
+.product-card:focus-visible::before {
     background: linear-gradient(90deg, transparent, rgba(255, 218, 160, 0.68), transparent);
     box-shadow: 0 0 5px rgba(243, 194, 123, 0.08);
 }
@@ -680,6 +686,13 @@ a {
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
+
+.resource-card.link-card,
+.stat-box.link-card {
+    display: flex;
+    flex-direction: column;
+}
+
 .feature-box,
 .guide-card,
 .resource-card,
@@ -1480,30 +1493,95 @@ body:not([data-particles]) .page-shell {
 
 .dashboard-grid {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
     gap: 20px;
+    align-items: start;
 }
 
 .dashboard-panel {
     padding: 20px;
+    min-width: 0;
 }
 
 .side-menu {
     display: grid;
-    gap: 10px;
+    gap: 8px;
+    min-width: 0;
 }
 
 .side-menu a {
-    padding: 14px 16px;
-    border: 1px solid rgba(243, 194, 123, 0.08);
-    background: rgba(255, 255, 255, 0.02);
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    min-height: 49px;
+    padding: 13px 16px;
+    border: 1px solid rgba(243, 194, 123, 0.24);
+    background: linear-gradient(180deg, rgba(35, 20, 10, 0.28), rgba(12, 7, 4, 0.72));
     color: var(--muted);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.018),
+        0 8px 18px rgba(0, 0, 0, 0.16);
+    overflow-wrap: anywhere;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.18s ease;
+}
+
+.side-menu a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(255, 226, 181, 0.16), transparent);
+    transform: translateX(-120%);
+}
+
+.side-menu a:hover {
+    transform: translateY(-1px);
+    border-color: rgba(243, 194, 123, 0.44);
+    background: linear-gradient(180deg, rgba(35, 20, 10, 0.44), rgba(12, 7, 4, 0.92));
+    color: var(--text);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+        0 18px 34px rgba(0, 0, 0, 0.3),
+        0 0 18px rgba(217, 139, 51, 0.12);
+}
+
+.side-menu a:hover::before {
+    transform: translateX(120%);
+    animation: side-menu-sheen 0.7s ease;
+}
+
+@keyframes side-menu-sheen {
+    from {
+        transform: translateX(-120%);
+    }
+
+    to {
+        transform: translateX(120%);
+    }
 }
 
 .side-menu a.active {
-    border-color: rgba(243, 194, 123, 0.26);
-    background: rgba(243, 194, 123, 0.07);
+    border-color: rgba(243, 194, 123, 0.4);
+    background:
+        linear-gradient(90deg, rgba(243, 194, 123, 0.13), rgba(243, 194, 123, 0.025)),
+        linear-gradient(180deg, rgba(35, 20, 10, 0.5), rgba(12, 7, 4, 0.9));
     color: var(--text);
+}
+
+.side-menu a.active::after {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: linear-gradient(180deg, rgba(255, 241, 207, 0.95), rgba(217, 139, 51, 0.7));
+    box-shadow: 0 0 18px rgba(243, 194, 123, 0.22);
+}
+
+.dashboard-panel sr-card {
+    min-width: 0;
+    overflow: hidden;
 }
 
 .stat-grid {
@@ -1537,6 +1615,8 @@ body:not([data-particles]) .page-shell {
 .dashboard-note p {
     margin: 0.4rem 0 0;
     color: var(--muted);
+    line-height: 1.55;
+    overflow-wrap: anywhere;
 }
 
 .dashboard-note-label + p {

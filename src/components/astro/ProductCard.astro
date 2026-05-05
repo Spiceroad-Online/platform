@@ -7,9 +7,10 @@ type Props = {
 
 const { product } = Astro.props;
 const renderArtifactIcon = product.artwork === 'artifact';
+const cardPriceLabel = product.priceLabel.replace(/^From\s+/i, '');
 ---
 
-<article class:list={['card', 'product-card', product.slug && `product-card--${product.slug}`]}>
+<a class:list={['card', 'product-card', 'link-card', product.slug && `product-card--${product.slug}`]} href={product.href}>
   <div class:list={['card-art', { 'card-art-icon': !product.imageSrc, 'card-art-icon--artifact': renderArtifactIcon }]}>
     {product.imageSrc ? (
       <img src={product.imageSrc} alt={product.imageAlt ?? product.name} />
@@ -97,11 +98,10 @@ const renderArtifactIcon = product.artwork === 'artifact';
     <p>{product.description}</p>
     <div class="price-row">
       <div class="price">
-        {product.pricePrefix && <span class="price-prefix">{product.pricePrefix}</span>}
-        <span class="price-value">{product.priceLabel}</span>
+        {product.cardPricePrefix && <span class="price-prefix">{product.cardPricePrefix}</span>}
+        <span class="price-value">{cardPriceLabel}</span>
       </div>
-      <span class="badge">{product.badge}</span>
+      {product.cardBadge && <span class="badge">{product.cardBadge}</span>}
     </div>
-    <a class="btn" href={product.href}>{product.ctaLabel ?? 'Explore'}</a>
   </div>
-</article>
+</a>

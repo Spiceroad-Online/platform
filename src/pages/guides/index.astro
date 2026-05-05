@@ -25,11 +25,11 @@ const guides = listGuides();
 
       <div class="guides-grid">
         {guides.map((guide) => (
-          <article class="guide-card">
+          <a id={guide.slug} class="guide-card link-card" href={guide.href}>
             <div class="meta">{guide.meta}</div>
             <h3>{guide.title}</h3>
             <p>{guide.description}</p>
-          </article>
+          </a>
         ))}
       </div>
     </div>

@@ -1,4 +1,5 @@
 ---
+import CtaBand from '../components/astro/CtaBand.astro';
 import PageHeader from '../components/astro/PageHeader.astro';
 import { listFreeResources } from '../lib/content';
 import { routes } from '../lib/routes';
@@ -25,16 +26,20 @@ const resources = listFreeResources();
 
       <div class="resources-grid">
         {resources.map((resource) => (
-          <article class="resource-card">
+          <a class="resource-card link-card" href={resource.href}>
             <div class="meta">{resource.meta}</div>
             <h3>{resource.title}</h3>
             <p>{resource.description}</p>
-            <div class="stack-gap-sm resource-card-actions">
-              <a class="btn" href={resource.href}>{resource.ctaLabel}</a>
-            </div>
-          </article>
+          </a>
         ))}
       </div>
     </div>
   </section>
+
+  <CtaBand
+    title="Login to claim free resources"
+    copy="Free resources stay visible for discovery, but claiming files, copy packs, and checklists happens through your account dashboard."
+    primaryLabel="Login to Claim"
+    primaryHref={routes.dashboard}
+  />
 </MarketingLayout>
